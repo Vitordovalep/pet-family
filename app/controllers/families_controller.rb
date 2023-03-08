@@ -6,7 +6,9 @@ class FamiliesController < ApplicationController
     @families = Family.all
   end
 
-  def show;  end
+  def show
+    @pets = Pet.where(family_id: @family)
+  end
 
   def new
     @family = Family.new
@@ -18,7 +20,7 @@ class FamiliesController < ApplicationController
       current_user.update!(family: @family)
       redirect_to root_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
