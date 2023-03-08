@@ -1,3 +1,4 @@
 <div class="container">
-  <p><%= @family.name %></p>
+  <h2><%= @family.name %></h2>
+  <p><%= link_to "Add pet to this Family", new_family_pet_path(@family) %></p>
 </div>
