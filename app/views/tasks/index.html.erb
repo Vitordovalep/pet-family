@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>Category: <%= task.category %></li>
+      <p>Description:<%= task.description %></p>
+    <% end %>
+  </ul>
+
+  <li><%=link_to "Back to home", root_path  %></li>
+
+</div>
+
