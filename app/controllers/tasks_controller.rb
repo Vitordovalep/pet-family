@@ -13,8 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      current_user.update!(task: @task)
-      redirect_to root_path
+      redirect_to new_task_schedule_path(@task)
     else
       render :new, status: :unprocessable_entity
     end

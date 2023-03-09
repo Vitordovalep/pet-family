@@ -1,0 +1,13 @@
+ <%= simple_form_for([task, schedule]) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :start_date, html5: true %>
+      <%= f.input :end_date, html5: true %>
+      <%= f.input :due_time %>
+      <%= f.input :user_id, collection: current_user.family.users %>
+      <%= f.input :pet_id, collection: current_user.family.pets %>
+
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
