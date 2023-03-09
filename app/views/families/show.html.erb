@@ -1,0 +1,16 @@
+<div class="container">
+  <p><%= link_to "Add pet to this Family", new_family_pet_path(@family) %></p>
+  <h2><%= @family.name %></h2>
+  <% @pets.each do |pet| %>
+    <p>Pet: <%= pet.name %></p>
+    <p>Species: <%= pet.species %></p>
+    <p>Birthday: <%= pet.birthday %></p>
+    <li>
+    <%= pet.id %>
+
+      <%= link_to "Edit pet", edit_pet_path(pet) %>
+      <%= link_to "Kill pet", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </li>
+    <p>--------------</p>
+  <% end %>
+</div>

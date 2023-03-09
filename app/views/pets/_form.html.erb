@@ -1,0 +1,11 @@
+<%= simple_form_for([@family, @pet]) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name, placeholder: "Pet name" %>
+      <%= f.input :species, placeholder: "Pet specie" %>
+      <%= f.input :birthday, html5: true %>
+      <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+<% end %>
