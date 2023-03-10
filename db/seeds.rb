@@ -66,22 +66,21 @@ reptile_breeds.each do |breed|
   Breed.create!(name: breed, species_id: reptile.id)
 end
 
-
 puts "Creating pets..."
 
-bird_pet = Pet.create!(name: "Angry Bird", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, species_id: bird.id, breed_id: bird_breeds.sample)
+bird_pet = Pet.create!(name: "Angry Bird", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, breed: Breed.where(species_id: bird.id).sample)
 bird_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395430/angry_birds_dhkoum.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
-cat_pet = Pet.create!(name: "Deeze Cat", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, species_id: cat.id, breed_id: cat_breeds.sample)
-cat_pet.photo.attach(io: URI.open("hhttps://res.cloudinary.com/doohtp0fi/image/upload/v1678395215/deeze_cat_r0ncym.jpg"), filename: "gos.jpg", content_type: "image/jpg")
+cat_pet = Pet.create!(name: "Deeze Cat", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, breed: Breed.where(species_id: cat.id).sample)
+cat_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395215/deeze_cat_r0ncym.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
-dog_pet = Pet.create!(name: "Van Dog", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, species_id: dog.id, breed_id: dog_breeds.sample)
+dog_pet = Pet.create!(name: "Van Dog", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, breed: Breed.where(species_id: dog.id).sample)
 dog_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395215/van_dog_ex38er.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
-horse_pet = Pet.create!(name: "Go Horse", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, species_id: horse.id, breed_id: horse_breeds.sample)
+horse_pet = Pet.create!(name: "Go Horse", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, breed: Breed.where(species_id: horse.id).sample)
 horse_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395430/go_horse_cwxsv0.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
-reptile_pet = Pet.create!(name: "Smoking Snake", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, species_id: reptile.id, breed_id: reptile_breeds.sample)
+reptile_pet = Pet.create!(name: "Smoking Snake", birthday: Faker::Date.birthday(min_age: 1, max_age: 32), family_id: family.id, breed: Breed.where(species_id: reptile.id).sample)
 reptile_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395214/smoking_snake_txdfoy.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
 puts "#{Family.count} families, #{User.count} users and #{Pet.count} pets created!"
