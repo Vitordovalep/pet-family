@@ -12,6 +12,7 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
+    @families = Family.all
   end
 
   def create
