@@ -8,7 +8,7 @@
         <%= s.input :due_time %>
         <%= s.input :user_id, collection: current_user.family.users %>
         <%= s.input :pet_id, collection: current_user.family.pets %>
-<% end %>
+      <% end %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-primary" %>
