@@ -84,3 +84,5 @@ gem "cloudinary"
 gem "ice_cube"
 
 gem "pundit"
+
+gem "open-uri"
