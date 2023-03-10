@@ -80,3 +80,9 @@ group :test do
 end
 
 gem "cloudinary"
+
+gem "ice_cube"
+
+gem "pundit"
+
+gem "open-uri"

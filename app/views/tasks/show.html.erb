@@ -1,0 +1,18 @@
+<h1><%= @task.category %></h1>
+<p><%= @task.description %></p>
+
+<h2>Agendamento:</h2>
+
+<% if @task.schedule.present? %>
+  <p>Pet: <%= @task.schedule.pet.name %></p>
+  <p>User: <%= @task.schedule.user.name %></p>
+  <p>Start time: <%= @task.schedule.start_date %></p>
+  <p>End time: <%= @task.schedule.end_date %></p>
+  <p>Due time: <%= @task.schedule.due_time %></p>
+<% else %>
+  <p>No schedule found.</p>
+<% end %>
+
+<%=link_to "Voltar a tarrefas", tasks_path  %>
+<%=link_to "Editar tarefa", edit_task_path(@task)  %>
+<%=link_to "Deletar tarefa", task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>

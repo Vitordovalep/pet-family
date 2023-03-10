@@ -128,6 +128,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.4)
     io-console (0.6.0)
     irb (1.6.3)
       reline (>= 0.3.0)
@@ -168,11 +169,17 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     orm_adapter (0.5.0)
     pg (1.4.6)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.3.0)
+      activesupport (>= 3.0.0)
     racc (1.6.2)
     rack (2.2.6.3)
     rack-test (2.0.2)
@@ -238,8 +245,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.5)
     thor (1.2.1)
     tilt (2.1.0)
+    time (0.2.1)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -250,6 +260,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    uri (0.12.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -283,10 +294,13 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1)
+  ice_cube
   jbuilder
   jsbundling-rails
+  open-uri
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.4, >= 7.0.4.2)
   sassc-rails
   selenium-webdriver
