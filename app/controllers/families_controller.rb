@@ -16,15 +16,6 @@ class FamiliesController < ApplicationController
     @families = Family.all
   end
 
-  # def create
-  #   raise
-  #   if params[:commit] == 'Criar'
-  #     create_new
-  #   elsif params[:commit] == 'Entrar'
-  #     create_join
-  #   end
-  # end
-
   # Join existing family
 
   def create
