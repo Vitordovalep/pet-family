@@ -1,12 +1,12 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: %i[show]
-  skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @families = Family.all
+    @families = policy_scope(Family)
   end
 
   def show
+    authorize @family
     @pets = Pet.where(family_id: @family)
     @my_schedules = current_user.schedules
     @family_schedules = @family.pets.map(&:schedules).flatten
@@ -14,11 +14,13 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
+    authorize @family
     @families = Family.all
   end
 
   def create
     @family = Family.new(family_params)
+    authorize @family
     if @family.save
       current_user.update!(family: @family)
       redirect_to root_path

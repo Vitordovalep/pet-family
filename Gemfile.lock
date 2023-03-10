@@ -83,8 +83,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    bootstrap3-datetimepicker-rails (4.17.47)
-      momentjs-rails (>= 2.8.1)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -98,13 +96,6 @@ GEM
     cloudinary (1.25.0)
       aws_cf_signer
       rest-client (>= 2.0.0)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -137,6 +128,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.16.4)
     io-console (0.6.0)
     irb (1.6.3)
       reline (>= 0.3.0)
@@ -161,8 +153,6 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
     minitest (5.18.0)
-    momentjs-rails (2.29.4.1)
-      railties (>= 3.1)
     msgpack (1.6.1)
     net-imap (0.3.4)
       date
@@ -179,11 +169,17 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     orm_adapter (0.5.0)
     pg (1.4.6)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.3.0)
+      activesupport (>= 3.0.0)
     racc (1.6.2)
     rack (2.2.6.3)
     rack-test (2.0.2)
@@ -240,11 +236,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    simple_form-datetimepicker (0.0.3)
-      bootstrap3-datetimepicker-rails
-      coffee-rails
-      momentjs-rails
-      rails (>= 5.0.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -254,8 +245,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.5)
     thor (1.2.1)
     tilt (2.1.0)
+    time (0.2.1)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -266,6 +260,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    uri (0.12.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -299,15 +294,17 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1)
+  ice_cube
   jbuilder
   jsbundling-rails
+  open-uri
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.4, >= 7.0.4.2)
   sassc-rails
   selenium-webdriver
   simple_form!
-  simple_form-datetimepicker
   sprockets-rails
   stimulus-rails
   turbo-rails

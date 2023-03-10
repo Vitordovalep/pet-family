@@ -4,6 +4,9 @@
   <% @pets.each do |pet| %>
     <p>Pet: <%= pet.name %></p>
     <p>Species: <%= pet.species %></p>
+    <% if pet.breed.present? %>
+      <p>Breed: <%= pet.breed %></p>
+    <% end %>
     <p>Birthday: <%= pet.birthday %></p>
     <li>
     <%= pet.id %>
@@ -19,6 +22,8 @@
   <% @my_schedules.each do |schedule| %>
     <%= schedule.task.category %>
   <% end %>
+
+  <p>----------------------------</p>
 
  <h2>All Family Tasks</h2>
 

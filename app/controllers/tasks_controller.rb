@@ -3,18 +3,22 @@ class TasksController < ApplicationController
   # skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @tasks = Task.all
+    @tasks = policy_scope(Task)
   end
 
-  def show; end
+  def show
+    authorize @task
+  end
 
   def new
     @task = Task.new
     @task.build_schedule
+    authorize @task
   end
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     if @task.save
       redirect_to tasks_path, notice: "A tarefa foi criada com sucesso!"
     else
@@ -22,9 +26,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @task
+  end
 
   def update
+    authorize @task
     if @task.update(task_params)
       redirect_to task_path(@task), notice: "A tarefa foi atualizada com sucesso!"
     else
@@ -33,6 +40,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorize @task
     @task.destroy
     redirect_to tasks_path
   end

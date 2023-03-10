@@ -4,10 +4,12 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params)
+    authorize @pet
     @pet.family = @family
     if @pet.save
       redirect_to family_path(@family)
@@ -16,7 +18,9 @@ class PetsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @pet
+  end
 
   def update
     if @pet.update(pet_params)
@@ -27,6 +31,7 @@ class PetsController < ApplicationController
   end
 
   def destroy
+    authorize @pet
     @pet.destroy
     redirect_to family_path(@pet.family)
   end
@@ -34,7 +39,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :birthday)
+    params.require(:pet).permit(:name, :species_id, :birthday, :breed_id)
   end
 
   def set_family

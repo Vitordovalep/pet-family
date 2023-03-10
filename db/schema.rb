@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_213241) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_131656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_213241) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "breeds", force: :cascade do |t|
+    t.string "name"
+    t.bigint "species_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["species_id"], name: "index_breeds_on_species_id"
+  end
+
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -50,11 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_213241) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.string "species"
     t.date "birthday"
     t.bigint "family_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "breed_id"
     t.index ["family_id"], name: "index_pets_on_family_id"
   end
 
@@ -70,6 +78,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_213241) do
     t.index ["pet_id"], name: "index_schedules_on_pet_id"
     t.index ["task_id"], name: "index_schedules_on_task_id"
     t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -96,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_213241) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "breeds", "species"
   add_foreign_key "pets", "families"
   add_foreign_key "schedules", "pets"
   add_foreign_key "schedules", "tasks"
