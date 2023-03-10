@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: %i[show]
-  skip_before_action :authenticate_user!, only: %i[index]
 
   def index
     @families = policy_scope(Family)
