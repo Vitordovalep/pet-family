@@ -66,8 +66,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_131656) do
     t.index ["family_id"], name: "index_pets_on_family_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.bigint "pet_id", null: false
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.time "due_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_schedules_on_pet_id"
+    t.index ["task_id"], name: "index_schedules_on_task_id"
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
   create_table "species", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "category"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,7 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_131656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.bigint "family_id", null: false
+    t.bigint "family_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["family_id"], name: "index_users_on_family_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -91,5 +112,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_131656) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "breeds", "species"
   add_foreign_key "pets", "families"
+  add_foreign_key "schedules", "pets"
+  add_foreign_key "schedules", "tasks"
+  add_foreign_key "schedules", "users"
   add_foreign_key "users", "families"
 end

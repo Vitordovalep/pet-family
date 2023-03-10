@@ -1,8 +1,10 @@
 class Pet < ApplicationRecord
   belongs_to :family
   belongs_to :breed
-  has_many :users, through: :family
+  has_many :schedules
   has_one :species, through: :breed
+  has_many :users, through: :family
+  has_many :tasks, through: :schedule
   has_one_attached :photo
 
   # SPECIES = %w[Dog Cat Horse Reptile Hamster]

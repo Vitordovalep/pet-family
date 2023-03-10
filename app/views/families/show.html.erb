@@ -16,4 +16,20 @@
     </li>
     <p>--------------</p>
   <% end %>
+
+  <h2>My Tasks</h2>
+
+  <% @my_schedules.each do |schedule| %>
+    <%= schedule.task.category %>
+  <% end %>
+
+  <p>----------------------------</p>
+
+ <h2>All Family Tasks</h2>
+
+  <% @family_schedules.each do |schedule| %>
+    <%= schedule.task.category %>
+  <% end %>
+
+
 </div>

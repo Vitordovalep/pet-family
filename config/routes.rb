@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: %i[destroy edit update]
+
+  resources :tasks
 end

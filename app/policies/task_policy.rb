@@ -1,4 +1,4 @@
-class PetPolicy < ApplicationPolicy
+class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -6,15 +6,23 @@ class PetPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create?
     true
   end
 
- def destroy?
-    record.family == user.family
+  def destroy?
+    true
   end
 
   def edit?
-    record.family == user.family
+    true
+  end
+
+  def update?
+    true
   end
 end
