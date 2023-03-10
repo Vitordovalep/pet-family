@@ -17,4 +17,8 @@ class PetPolicy < ApplicationPolicy
   def edit?
     record.family == user.family
   end
+
+  def update?
+    record.family == user.family
+  end
 end
