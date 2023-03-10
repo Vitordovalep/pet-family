@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: %i[show]
+  before_action :set_family, only: %i[show create_by_id]
 
   def index
     @families = policy_scope(Family)
@@ -16,11 +16,32 @@ class FamiliesController < ApplicationController
     @families = Family.all
   end
 
+  # def create
+  #   raise
+  #   if params[:commit] == 'Criar'
+  #     create_new
+  #   elsif params[:commit] == 'Entrar'
+  #     create_join
+  #   end
+  # end
+
+  # Join existing family
+
   def create
     @family = Family.new(family_params)
     authorize @family
     if @family.save
       current_user.update!(family: @family)
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def create_join
+    @family = Family.find(params[:family][:name])
+    authorize @family
+    if current_user.update!(family: @family)
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity

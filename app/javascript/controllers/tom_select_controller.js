@@ -7,9 +7,7 @@ export default class extends Controller {
   static values = { options: Object }
 
   connect() {
-    console.log("23");
-    new TomSelect(this.element, {
-      create: true,
+    new TomSelect(this.element, { 
       sortField: {
         field: "text",
         direction: "asc"
