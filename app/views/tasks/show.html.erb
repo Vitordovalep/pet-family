@@ -13,6 +13,6 @@
   <p>No schedule found.</p>
 <% end %>
 
-<%=link_to "Voltar a tarrefas", tasks_path  %>
+<%=link_to "Voltar a tarefas", tasks_path  %>
 <%=link_to "Editar tarefa", edit_task_path(@task)  %>
 <%=link_to "Deletar tarefa", task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>

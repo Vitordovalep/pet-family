@@ -1,15 +1,27 @@
 <div class="container">
   <h1>Create a new family or join a family</h1>
-  <h2>Create new</h2>
-  <%= simple_form_for @family do |f| %>
+  <h2>Select existing</h2>
+  <%= simple_form_for @family, url: families_join_path do |f| %>
     <div class="form-inputs">
       <%= f.input :name, collection: @families, input_html: {
         data: {controller: "tom-select"}
         } %>
       <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-primary" %>
-      </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Join family", class: "btn btn-primary" %>
+    </div>
   <% end %>
+------------------------
+  <h2>Create new</h2>
+  <%= simple_form_for @family do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: "Family name"%>
+    <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 </div>

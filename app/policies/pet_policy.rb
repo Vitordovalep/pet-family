@@ -10,7 +10,7 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
- def destroy?
+  def destroy?
     record.family == user.family
   end
 

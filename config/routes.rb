@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :pets, only: %i[new create]
   end
 
+  post "families/join", to: 'families#create_join', as: :families_join
+
+
   resources :pets, only: %i[destroy edit update]
 
   resources :tasks

@@ -13,4 +13,8 @@ class FamilyPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def create_join?
+    true
+  end
 end
