@@ -1,17 +1,26 @@
-<div class="navbar-lewagon">
+<div class="navbar-lewagon <%= user_signed_in? ? '' : 'd-none' %>">
+  <% if user_signed_in? %>
       <ul class="navbar-nav me-auto nv-footer justify-content-between">
           <li class="navbar-item">
-            <i class="fa-solid fa-paw"></i>
-            <%= link_to "Tarefas", root_path, class:"nav-link" %>
+            <%= link_to root_path, class:"nav-link" do %>
+              <i class="fa-solid fa-paw"></i>
+              <p>Tarefas</p>
+            <% end %>
           </li>
           <li class="navbar-item">
-            <i class="fa-solid fa-file"></i>
-            <%= link_to "Documentos", root_path, class:"nav-link" %>
+            <%= link_to root_path, class:"nav-link" do %>
+              <i class="fa-solid fa-file"></i>
+              <p>Documentos</p>
+            <% end %>
           </li>
           <li class="navbar-item">
-            <i class="fa-solid fa-user"></i>
-            <%= link_to "Perfil", root_path, class:"nav-link" %>
+            <%= link_to profiles_path, class:"nav-link" do %>
+              <i class="fa-solid fa-user"></i>
+              <p>Perfil</p>
+            <% end %>
           </li>
-
       </ul>
+  <% else %>
+
+  <% end %>
 </div>
