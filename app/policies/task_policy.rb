@@ -7,22 +7,22 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @record.schedule.user.family == user.family
   end
 
   def create?
-    true
+    @record.schedule.user.family == user.family
   end
 
   def destroy?
-    true
+    @record.schedule.user.family == user.family
   end
 
   def edit?
-    true
+    @record.schedule.user.family == user.family
   end
 
   def update?
-    true
+    @record.schedule.user.family == user.family
   end
 end
