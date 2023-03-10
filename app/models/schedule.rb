@@ -3,5 +3,5 @@ class Schedule < ApplicationRecord
   belongs_to :task
   belongs_to :user
 
-  validates :user_id, :task_id, :start_date, :end_date, :due_time, presence: true
+  validates :start_date, :end_date, :due_time, :pet_id, :user_id, presence: true
 end

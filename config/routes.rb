@@ -11,7 +11,5 @@ Rails.application.routes.draw do
 
   resources :pets, only: %i[destroy edit update]
 
-  resources :tasks, only: %i[index new create] do
-    resources :schedules, only: %i[new create]
-  end
+  resources :tasks
 end
