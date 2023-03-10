@@ -23,6 +23,7 @@ class PetsController < ApplicationController
   end
 
   def update
+    authorize @pet
     if @pet.update(pet_params)
       redirect_to @pet.family, notice: "Pet was successfully updated."
     else

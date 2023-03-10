@@ -3,9 +3,9 @@
   <h2><%= @family.name %></h2>
   <% @pets.each do |pet| %>
     <p>Pet: <%= pet.name %></p>
-    <p>Species: <%= pet.species %></p>
+    <p>Species: <%= pet.species.name %></p>
     <% if pet.breed.present? %>
-      <p>Breed: <%= pet.breed %></p>
+      <p>Breed: <%= pet.breed.name %></p>
     <% end %>
     <p>Birthday: <%= pet.birthday %></p>
     <li>

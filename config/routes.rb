@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   resources :pets, only: %i[destroy edit update]
 
   resources :tasks
+
+  resources :species, only: [] do
+    resources :breeds, only: :index, on: :collection
+  end
+
 end
