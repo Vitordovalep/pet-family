@@ -12,7 +12,7 @@ class PetsController < ApplicationController
     authorize @pet
     @pet.family = @family
     if @pet.save
-      redirect_to family_path(@family)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
   def update
     authorize @pet
     if @pet.update(pet_params)
-      redirect_to @pet.family, notice: "Pet was successfully updated."
+      redirect_to root_path, notice: "Pet was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class PetsController < ApplicationController
   def destroy
     authorize @pet
     @pet.destroy
-    redirect_to family_path(@pet.family)
+    redirect_to root_path
   end
 
   private
