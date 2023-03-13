@@ -1,11 +1,12 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: %i[show create_by_id]
+  before_action :set_family, only: %i[create_by_id]
 
   def index
     @families = policy_scope(Family)
   end
 
   def show
+    @family = Family.find(current_user.family.id)
     authorize @family
     @pets = Pet.where(family_id: @family)
     @my_schedules = current_user.schedules
