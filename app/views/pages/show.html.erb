@@ -2,7 +2,11 @@
     <h1 class="h1-home">Lista de Tarefas</h1>
   <div class="header-home">
       <% @pets.each do |pet| %>
-        <%= image_tag pet.photo, class: "avatar" %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
       <% end %>
       <div class="add-pet-btn btn">
         <%= link_to new_family_pet_path(@family) do %>
@@ -21,9 +25,13 @@
         <div class="task-card-drescription">
           <p><strong>Dar comida</strong></p>
             <p>300 gramas de ração.</p>
-            <% @pets.each do |pet| %>
-              <%= image_tag pet.photo, class: "avatar" %>
-            <% end %>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
         </div>
         <div class="task-card-hour">
           <p><strong>08:00</strong></p>
@@ -39,9 +47,13 @@
         <div class="task-card-drescription">
           <p><strong>Dar comida</strong></p>
             <p>300 gramas de ração.</p>
-            <% @pets.each do |pet| %>
-              <%= image_tag pet.photo, class: "avatar" %>
-            <% end %>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
         </div>
         <div class="task-card-hour">
           <p><strong>08:00</strong></p>
@@ -57,9 +69,13 @@
         <div class="task-card-drescription">
           <p><strong>Dar comida</strong></p>
             <p>300 gramas de ração.</p>
-            <% @pets.each do |pet| %>
-              <%= image_tag pet.photo, class: "avatar" %>
-            <% end %>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
         </div>
         <div class="task-card-hour">
           <p><strong>08:00</strong></p>
@@ -75,9 +91,13 @@
         <div class="task-card-drescription">
           <p><strong>Dar comida</strong></p>
             <p>300 gramas de ração.</p>
-            <% @pets.each do |pet| %>
-              <%= image_tag pet.photo, class: "avatar" %>
-            <% end %>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
         </div>
         <div class="task-card-hour">
           <p><strong>08:00</strong></p>
