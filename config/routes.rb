@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection
   end
-
 end
