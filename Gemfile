@@ -81,7 +81,9 @@ end
 
 gem "cloudinary"
 
-gem "ice_cube"
+# Recurring events
+gem "simple_calendar"
+gem "recurring_select", github: "gregschmit/recurring_select", branch: "master"
 
 gem "pundit"
 

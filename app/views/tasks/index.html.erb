@@ -9,8 +9,18 @@
     <% @tasks.each do |task| %>
       <li>Category: <%= task.category %></li>
       <p>Description:<%= task.description %></p>
+      <p>Schedule: <%= task.schedule.pet.name %> // <%= task.schedule.recurring_rule %></p>
       <%=link_to "See more details", task_path(task)%>
     <% end %>
   </ul>
+
+  <%= week_calendar events: @schedules do |day, events|%>
+   <div><strong><%= day.to_s %></strong></div>
+    <% events.each do |event|%>
+      <div>
+        <%= link_to event.task.category, event.task %>
+      </div>
+    <% end %>
+  <% end %>
 
 </div>
