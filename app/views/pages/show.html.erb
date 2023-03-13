@@ -1,36 +1,110 @@
-<div class="container">
-  <%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %>
-  <p><%= link_to "Add pet to this Family", new_family_pet_path(@family) %></p>
-  <h2><%= @family.name %></h2>
-  <% @pets.each do |pet| %>
-    <p>Pet: <%= pet.name %></p>
-    <p>Species: <%= pet.species.name %></p>
-    <% if pet.breed.present? %>
-      <p>Breed: <%= pet.breed.name %></p>
-    <% end %>
-    <p>Birthday: <%= pet.birthday %></p>
-    <li>
-    <%= pet.id %>
-
-      <%= link_to "Edit pet", edit_pet_path(pet) %>
-      <%= link_to "Kill pet", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-    </li>
-    <p>--------------</p>
-  <% end %>
-
-  <h2>My Tasks</h2>
-
-  <% @my_schedules.each do |schedule| %>
-    <%= schedule.task.category %>
-  <% end %>
-
-  <p>----------------------------</p>
-
- <h2>All Family Tasks</h2>
-
-  <% @family_schedules.each do |schedule| %>
-    <%= schedule.task.category %>
-  <% end %>
-
-
+<div class="container-home">
+    <h1 class="h1-home">Lista de Tarefas</h1>
+  <div class="header-home">
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
+      <div class="add-pet-btn btn">
+        <%= link_to new_family_pet_path(@family) do %>
+          <i class="fa-solid fa-circle-plus fa-spin"></i>
+       <% end %>
+      </div>
+  </div>
+  <div>
+    <h1>Calendário</h1>
+  </div>
+  <div class="tasks-home">
+      <div class="task-card">
+        <div class="task-card-icon">
+          <i class="fa-solid fa-pills fa-2x"></i>
+        </div>
+        <div class="task-card-drescription">
+          <p><strong>Dar comida</strong></p>
+            <p>300 gramas de ração.</p>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
+        </div>
+        <div class="task-card-hour">
+          <p><strong>08:00</strong></p>
+          <div class=>
+              <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+      <div class="task-card">
+        <div class="task-card-icon">
+          <i class="fa-solid fa-pills fa-2x"></i>
+        </div>
+        <div class="task-card-drescription">
+          <p><strong>Dar comida</strong></p>
+            <p>300 gramas de ração.</p>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
+        </div>
+        <div class="task-card-hour">
+          <p><strong>08:00</strong></p>
+          <div class=>
+              <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+      <div class="task-card">
+        <div class="task-card-icon">
+          <i class="fa-solid fa-pills fa-2x"></i>
+        </div>
+        <div class="task-card-drescription">
+          <p><strong>Dar comida</strong></p>
+            <p>300 gramas de ração.</p>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
+        </div>
+        <div class="task-card-hour">
+          <p><strong>08:00</strong></p>
+          <div class=>
+              <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+      <div class="task-card">
+        <div class="task-card-icon">
+          <i class="fa-solid fa-pills fa-2x"></i>
+        </div>
+        <div class="task-card-drescription">
+          <p><strong>Dar comida</strong></p>
+            <p>300 gramas de ração.</p>
+      <% @pets.each do |pet| %>
+          <% if pet.photo.attached? %>
+            <%= image_tag pet.photo, class: "avatar" %>
+          <% else %>
+            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
+          <% end %>
+      <% end %>
+        </div>
+        <div class="task-card-hour">
+          <p><strong>08:00</strong></p>
+          <div class=>
+              <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar" %>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
