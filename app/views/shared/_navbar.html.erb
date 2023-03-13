@@ -14,13 +14,11 @@
             <% end %>
           </li>
           <li class="navbar-item">
-            <%= link_to profiles_path, class:"nav-link" do %>
+            <%= link_to family_path(current_user.family), class:"nav-link" do %>
               <i class="fa-solid fa-user"></i>
               <p>Perfil</p>
             <% end %>
           </li>
       </ul>
-  <% else %>
-
   <% end %>
 </div>
