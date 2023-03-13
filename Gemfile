@@ -86,3 +86,8 @@ gem "ice_cube"
 gem "pundit"
 
 gem "open-uri"
+
+gem "rails_admin", "3.0"
+gem "sassc-rails"
+
+gem "blazer"
