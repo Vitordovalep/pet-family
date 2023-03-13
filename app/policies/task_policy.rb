@@ -2,16 +2,16 @@ class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      user.admin? ? scope.all : scope.where(schedule: [user: user])
     end
   end
 
   def show?
-    @record.schedule.user.family == user.family
+    @record.schedule.user.family == user.family || user.admin?
   end
 
   def create?
-    @record.schedule.user.family == user.family
+    true
   end
 
   def destroy?

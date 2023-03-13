@@ -1,4 +1,11 @@
 <div class="container">
+
+
+  <% if current_user.admin? %>
+    <%= link_to "Ir para a área de administrador", rails_admin_path  %>
+    <%= link_to "Ir para a área de dados (Blazer)", "/blazer"  %>
+  <% end %>
+
   <h1>Create a new family or join a family</h1>
   <h2>Select existing</h2>
   <%= simple_form_for @family, url: families_join_path do |f| %>
