@@ -11,7 +11,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def create?
-    @record.schedule.user.family == user.family
+    true
   end
 
   def destroy?

@@ -1,6 +1,7 @@
 puts "starting seed..."
 
 puts "cleaning  database..."
+Task.destroy_all
 Pet.destroy_all
 Family.destroy_all
 User.destroy_all
