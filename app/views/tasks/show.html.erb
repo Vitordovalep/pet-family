@@ -6,8 +6,8 @@
 <% if @task.schedule.present? %>
   <p>Pet: <%= @task.schedule.pet.name %></p>
   <p>User: <%= @task.schedule.user.name %></p>
-  <p>Start time: <%= @task.schedule.start_date %></p>
-  <p>End time: <%= @task.schedule.end_date %></p>
+  <p>Start time: <%= @task.schedule.start_time %></p>
+  <p>End time: <%= @task.schedule.end_time %></p>
   <p>Due time: <%= @task.schedule.due_time %></p>
 <% else %>
   <p>No schedule found.</p>

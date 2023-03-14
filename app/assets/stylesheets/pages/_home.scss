@@ -6,8 +6,9 @@
 
 .h1-home {
   color: #8BC34A;
-  padding-top: 16px;
-  background-image: linear-gradient(#8bc34ac0 , white)
+  padding-top: 20px;
+  padding-bottom: 8px;
+  background-image: linear-gradient(rgba(139, 195, 74, 0.4) , #f4f4f4)
 }
 
 .header-home {
@@ -30,6 +31,23 @@
   padding-bottom: 16px;
 }
 
+#new-task-btn {
+  color: #FFFFFF;
+  background-color: #8BC34A;
+  margin-right: 48px;
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+  box-sizing: border-box;
+  border: 5px solid #8BC34A;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+
+#new-task-btn:hover {
+  background-color: #FFFFFF;
+  color: #8BC34A;
+  border: 8px solid #8BC34A;
+}
+
 .task-card {
   display: flex;
   justify-content: space-between;
@@ -49,7 +67,7 @@
 		top:25%;
   }
 
-  .task-card-drescription {
+  .task-card-description {
     text-align: left;
     margin-bottom: 12px;
     font-size: auto;

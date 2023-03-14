@@ -4,7 +4,10 @@ class TasksController < ApplicationController
 
   def index
     @tasks = policy_scope(Task)
+    @schedules = Schedule.all
   end
+
+  # params.fetch([:start_date], Time.zone.now).to_date
 
   def show
     authorize @task
@@ -20,6 +23,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     authorize @task
     if @task.save
+      if params[:task][:schedule_attributes][:recurring_rule] != ""
+        schedule = @task.schedule
+        schedule.recurring_rule = params[:task][:schedule_attributes][:recurring_rule]
+        schedule.save
+      end
       redirect_to tasks_path, notice: "A tarefa foi criada com sucesso!"
     else
       render :new, status: :unprocessable_entity
@@ -48,7 +56,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:category, :description, schedule_attributes: [:start_date, :end_date, :due_time, :pet_id, :user_id])
+    params.require(:task).permit(:category, :description, schedule_attributes: %i[start_time end_time due_time pet_id user_id])
   end
 
   def set_task
