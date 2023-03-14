@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Family join
   post "families/join", to: 'families#create_join', as: :families_join
 
-  resources :pets, only: %i[destroy edit update]
+  resources :pets, only: %i[show destroy edit update]
 
   resource :profiles, only: %i[show update]
 

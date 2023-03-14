@@ -1,6 +1,7 @@
+
 <div class="container">
   <div class="card-header">
-    <h1>Família e membros.</h1>
+    <h1>Pets da família.</h1>
     <% if @family.photo.attached? %>
       <%= image_tag @family.photo, class: "avatar-large" %>
     <% else %>
@@ -9,9 +10,11 @@
   </div>
 
 
-<% @users.each do |user|%>
-<div class="card-white">
-  <%= image_tag user.photo, class: "avatar-medium" %>
-  <p><%= user.name %></p>
-</div>
+<% @pets.each do |pet|%>
+  <%= link_to edit_pet_path(pet) do %>
+    <div class="card-white">
+      <%= image_tag pet.photo, class: "avatar-medium" %>
+      <p><%= pet.name %></p>
+    </div>
+  <% end %>
 <% end %>
