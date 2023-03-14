@@ -28,7 +28,7 @@ class TasksController < ApplicationController
         schedule.recurring_rule = params[:task][:schedule_attributes][:recurring_rule]
         schedule.save
       end
-      redirect_to tasks_path, notice: "A tarefa foi criada com sucesso!"
+      redirect_to root_path, notice: "A tarefa foi criada com sucesso!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def update
     authorize @task
     if @task.update(task_params)
-      redirect_to task_path(@task), notice: "A tarefa foi atualizada com sucesso!"
+      redirect_to root_path, notice: "A tarefa foi atualizada com sucesso!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   def destroy
     authorize @task
     @task.destroy
-    redirect_to tasks_path
+    redirect_to root_path
   end
 
   private
