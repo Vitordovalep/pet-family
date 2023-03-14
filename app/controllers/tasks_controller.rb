@@ -5,7 +5,6 @@ class TasksController < ApplicationController
   def index
     @tasks = policy_scope(Task)
     @schedules = Schedule.all
-    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) }
   end
 
   # params.fetch([:start_date], Time.zone.now).to_date

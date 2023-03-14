@@ -4,7 +4,9 @@ class PagesController < ApplicationController
     @family = Family.find(current_user.family.id)
     authorize @family
     @pets = Pet.includes(breed: :species).where(family_id: @family)
-    @my_schedules = current_user.schedules
-    @family_schedules = @family.pets.map(&:schedules).flatten
+    # Calendar
+    @tasks = policy_scope(Task)
+    @schedules = Schedule.includes(:pet, :task, :user).all
+    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) }
   end
 end

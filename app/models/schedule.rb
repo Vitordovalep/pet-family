@@ -29,7 +29,7 @@ class Schedule < ApplicationRecord
       [self]
     else
       schedule(start_d).occurrences(end_d).map do |date|
-        Schedule.new(id: id, user: user, task: task, pet: pet, start_time: date)
+        Schedule.new(id: id, user: user, task: task, pet: pet, due_time: due_time, start_time: date)
       end
     end
   end
