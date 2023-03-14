@@ -15,9 +15,12 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <div class="container-pages">
+
       <%= yield %>
-    </div>
+    
+
+
+
     <div id="navbar-botton">
       <%= render "shared/navbar" unless hide_navbar? %>
     </div>
