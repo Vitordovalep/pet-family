@@ -3,11 +3,13 @@
       <%= f.input :category, collection: Task::TASK_CATEGORIES %>
       <%= f.input :description, input_html: { :maxlength => 60 }%>
       <%= f.fields_for :schedule do |s| %>
-        <%= s.input :start_date, html5: true %>
-        <%= s.input :end_date, html5: true %>
+        <%= s.input :start_time, html5: true %>
+        <%= s.input :end_time, html5: true %>
         <%= s.input :due_time %>
         <%= s.input :user_id, collection: current_user.family.users %>
         <%= s.input :pet_id, collection: current_user.family.pets %>
+        <%= s.label "Frequencia" %>
+        <%= s.select_recurring :recurring_rule, nil, allow_blank: true %>
       <% end %>
     </div>
     <div class="form-actions">
