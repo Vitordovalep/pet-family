@@ -2,6 +2,12 @@ class PetsController < ApplicationController
   before_action :set_family, only: %i[new create]
   before_action :set_pet, only: %i[edit update destroy]
 
+  def show
+    @pets = Pet.where(family: current_user.family)
+    authorize @pets
+    @family = Family.find(current_user.family_id)
+  end
+
   def new
     @pet = Pet.new
     authorize @pet

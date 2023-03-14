@@ -10,6 +10,10 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def destroy?
     record.family == user.family
   end

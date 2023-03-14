@@ -8,6 +8,8 @@ class FamiliesController < ApplicationController
   def show
     @family = Family.find(current_user.family.id)
     authorize @family
+    @user = User.find(current_user.id)
+    authorize @user
   end
 
   def new
