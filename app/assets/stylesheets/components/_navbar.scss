@@ -1,8 +1,8 @@
-.navbar-lewagon {
+.navbar-pet-family {
   justify-content: space-between;
   background: #8BC34A;
   color: white;
-  padding: 8px 20px 0 20px;
+  padding: 0px 24px 0 24px;
 
   .nv-footer {
     display: flex;
@@ -13,24 +13,17 @@
   .navbar-item {
     display: block;
     text-align: center;
-    margin: 0 20px 0 20px;
   }
 
-  a {
-    color: white;
+  p {
+    margin: 0;
   }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-#footer {
-  position: sticky;
+#navbar-botton {
+  margin-top: 50px;
+  position: fixed;
+  overflow: hidden;
   bottom: 0;
   width: 100%;
 }
