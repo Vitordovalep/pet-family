@@ -30,6 +30,23 @@
   padding-bottom: 16px;
 }
 
+#new-task-btn {
+  color: #FFFFFF;
+  background-color: #8BC34A;
+  margin-right: 48px;
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+  box-sizing: border-box;
+  border: 5px solid #8BC34A;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+
+#new-task-btn:hover {
+  background-color: #FFFFFF;
+  color: #8BC34A;
+  border: 8px solid #8BC34A;
+}
+
 .task-card {
   display: flex;
   justify-content: space-between;
