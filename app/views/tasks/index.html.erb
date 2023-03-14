@@ -14,7 +14,7 @@
     <% end %>
   </ul>
 
-  <%= week_calendar events: @schedules do |day, events|%>
+  <%= week_calendar events: @calendar_schedules do |day, events|%>
    <div><strong><%= day.to_s %></strong></div>
     <% events.each do |event|%>
       <div>

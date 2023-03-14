@@ -4,7 +4,7 @@
       <%= f.input :description, input_html: { :maxlength => 60 }%>
       <%= f.fields_for :schedule do |s| %>
         <%= s.input :start_time, html5: true %>
-        <%= s.input :end_time, html5: true, hint: "Não preencha se quer que repita indefinidamente" %>
+        <%= s.input :end_time, html5: true %>
         <%= s.input :due_time %>
         <%= s.input :user_id, collection: current_user.family.users %>
         <%= s.input :pet_id, collection: current_user.family.pets %>

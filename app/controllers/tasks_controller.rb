@@ -5,8 +5,10 @@ class TasksController < ApplicationController
   def index
     @tasks = policy_scope(Task)
     @schedules = Schedule.all
-    
+    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) }
   end
+
+  # params.fetch([:start_date], Time.zone.now).to_date
 
   def show
     authorize @task
@@ -55,7 +57,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:category, :description, schedule_attributes: [:start_time, :end_time, :due_time, :pet_id, :user_id, :recurring_rule])
+    params.require(:task).permit(:category, :description, schedule_attributes: %i[start_time end_time due_time pet_id user_id])
   end
 
   def set_task
