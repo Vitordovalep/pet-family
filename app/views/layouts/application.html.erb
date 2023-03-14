@@ -8,11 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%= favicon_link_tag "pet-care.png", rel: "icon", type: "image/png" %>
+
   </head>
 
   <body>
     <%= render "shared/flashes" %>
-    <%= yield %>
-  <footer id="footer"> <%= render "shared/navbar" unless hide_navbar? %> </footer>
+
+      <%= yield %>
+    
+
+
+
+    <div id="navbar-botton">
+      <%= render "shared/navbar" unless hide_navbar? %>
+    </div>
   </body>
 </html>

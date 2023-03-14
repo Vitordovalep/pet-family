@@ -1,9 +1,5 @@
 // Specific CSS for your home-page
 
-.container-home {
-  text-align: center;
-}
-
 .h1-home {
   color: #8BC34A;
   padding-top: 20px;
@@ -11,6 +7,7 @@
   background-image: linear-gradient(rgba(139, 195, 74, 0.4) , #f4f4f4);
   text-align: center;
   font-weight: bold;
+  margin: 0;
 }
 
 .header-home {
@@ -19,73 +16,4 @@
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.add-pet-btn {
-  color: #D9D9D9;
-  padding: auto;
-  border-radius: 50%;
-  text-decoration: none;
-}
-
-.tasks-home {
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-#new-task-btn {
-  color: #FFFFFF;
-  background-color: #8BC34A;
-  margin-right: 48px;
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
-  box-sizing: border-box;
-  border: 5px solid #8BC34A;
-  border-radius: 50%;
-  transition-duration: 0.4s;
-}
-
-#new-task-btn:hover {
-  background-color: #FFFFFF;
-  color: #8BC34A;
-  border: 8px solid #8BC34A;
-}
-
-.task-card {
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid #D9D9D9;
-  border-radius: 10px;
-  box-shadow: 4px 8px #D9D9D9;
-  width: 90%;
-  height: auto;
-  margin: auto;
-  margin-bottom: 16px;
-
-  .task-card-icon {
-    color: #D9D9D9;
-    padding: 8px 8px 8px 24px;
-    text-align: left;
-    position:relative;
-		top:25%;
-  }
-
-  .task-card-description {
-    text-align: left;
-    margin-bottom: 12px;
-    font-size: auto;
-    width: 70%;
-    p{
-      margin-bottom: 4px;
-    }
-  }
-
-  .task-card-hour {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 8px 24px 8px 8px;
-    font-size: large;
-    padding-bottom: 16px;
-    align-items: center;
-  }
 }

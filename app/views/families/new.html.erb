@@ -4,6 +4,8 @@
   <% if current_user.admin? %>
     <%= link_to "Ir para a área de administrador", rails_admin_path  %>
     <%= link_to "Ir para a área de dados (Blazer)", "/blazer"  %>
+    <%= link_to "Sair do app", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-secondary btn-lg w-100" %>
+
   <% end %>
 
   <h1>Create a new family or join a family</h1>

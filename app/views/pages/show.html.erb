@@ -1,5 +1,7 @@
-<div class="container-home">
-    <h1 class="h1-home">Lista de Tarefas</h1>
+<div class="container-pages">
+
+
+  <h1 class="h1-home">Lista de Tarefas</h1>
   <div class="header-home">
       <% @pets.each do |pet| %>
           <% if pet.photo.attached? %>
@@ -11,12 +13,13 @@
       <div class="add-pet-btn btn">
         <%= link_to new_family_pet_path(@family) do %>
           <i class="fa-solid fa-circle-plus fa-spin"></i>
-       <% end %>
+        <% end %>
       </div>
   </div>
   <div>
     <%# calendario %>
     <h1>Calendário</h1>
+
     <%= calendar(number_of_days: 1, events: @calendar_schedules) do |day, events|%>
     <div><strong><%= day.day.to_s %></strong></div>
       <% events.each do |event|%>
@@ -51,5 +54,10 @@
         <% end %>
       <% end %>
     <% end %>
+
   </div>
 </div>
+
+<%= link_to new_task_path do %>
+  <i id="sticky-btn", class="fa-solid fa-circle-plus fa-3x"></i>
+<% end %>

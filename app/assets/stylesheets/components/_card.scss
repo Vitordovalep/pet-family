@@ -51,3 +51,48 @@
 .card-white-item-right {
   font-size: 16px;
 }
+
+.tasks-home {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  box-shadow: 4px 8px #D9D9D9;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 16px;
+
+  .task-card-icon {
+    color: #D9D9D9;
+    padding: 8px 8px 8px 24px;
+    text-align: left;
+    position:relative;
+		top:25%;
+  }
+
+  .task-card-description {
+    text-align: left;
+    margin-bottom: 12px;
+    font-size: auto;
+    width: 70%;
+    p{
+      margin-bottom: 4px;
+    }
+  }
+
+  .task-card-hour {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px 24px 8px 8px;
+    font-size: large;
+    padding-bottom: 16px;
+    align-items: center;
+  }
+}
