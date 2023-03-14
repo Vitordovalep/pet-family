@@ -1,6 +1,7 @@
 puts "starting seed..."
 
 puts "cleaning  database..."
+Task.destroy_all
 Pet.destroy_all
 Family.destroy_all
 User.destroy_all
@@ -84,3 +85,4 @@ reptile_pet = Pet.create!(name: "Smoking Snake", birthday: Faker::Date.birthday(
 reptile_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395214/smoking_snake_txdfoy.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
 puts "#{Family.count} families, #{User.count} users and #{Pet.count} pets created!"
+ 
