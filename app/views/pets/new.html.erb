@@ -1,4 +1,12 @@
 <div class="container">
-  <h1>Create a pet to <%= @family.name %></h1>
+  <div class="class row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-edit">
 
-<%= render "form", family: @family, pet: @pet %>
+        <h1>Adicionar novo Pet</h1>
+        <%= render "form", family: @family, pet: @pet %>
+
+      </div>
+    </div>
+  </div>
+</div>

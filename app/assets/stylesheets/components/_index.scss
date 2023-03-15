@@ -1,4 +1,3 @@
-// Import your components CSS files here.
 @import "alert";
 @import "avatar";
 @import "button";
@@ -7,6 +6,8 @@
 @import "navbar";
 @import "tom-select/dist/scss/tom-select";
 @import "card";
+@import "form";
+@import "link";
 
 
 a:link { text-decoration: none; }
@@ -24,6 +25,7 @@ h1 {
 
 h2 {
   color: #808080;
+  font-weight: bold;
 }
 
 p {
