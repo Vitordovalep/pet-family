@@ -10,13 +10,34 @@
 
 
 // Import your components CSS files here.
+@import "alert";
+@import "avatar";
+@import "button";
+@import "container";
+@import "form_legend_clear";
+@import "navbar";
+@import "tom-select/dist/scss/tom-select";
+@import "card";
+
+
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 h1 {
   color: #8BC34A;
-  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  background-image: linear-gradient(rgba(139, 195, 74, 0.4) , #f4f4f4);
   text-align: center;
-  margin: 16px 0 8px 0;
+  font-weight: bold;
+  margin: 0;
+}
+
+h2 {
+  color: #808080;
+}
+
+p {
+  color: #808080;
 }

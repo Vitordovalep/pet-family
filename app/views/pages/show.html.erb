@@ -1,14 +1,9 @@
 <div class="container-pages">
 
-
-  <h1 class="h1-home">Lista de Tarefas</h1>
+  <h1>Lista de Tarefas</h1>
   <div class="header-home">
       <% @pets.each do |pet| %>
-          <% if pet.photo.attached? %>
-            <%= image_tag pet.photo, class: "avatar" %>
-          <% else %>
-            <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
-          <% end %>
+        <%= render "shared/avatar_small_pet", pet: pet %>
       <% end %>
       <div class="add-pet-btn btn">
         <%= link_to new_family_pet_path(@family) do %>
@@ -18,41 +13,31 @@
   </div>
   <div>
     <%# calendario %>
-    <h1>Calendário</h1>
 
     <%= calendar(number_of_days: 1, events: @calendar_schedules) do |day, events|%>
-    <div><strong><%= day.day.to_s %></strong></div>
-      <% events.each do |event|%>
-          <%# Tasks do dia %>
-        <%= link_to event.task do %>
-          <div class="tasks-home">
-            <div class="task-card">
-              <div class="task-card-icon">
-                <i class="fa-solid fa-pills fa-2x"></i>
-              </div>
-              <div class="task-card-description">
-                <p><strong><%= event.task.category %></strong></p>
-                  <p><%= event.task.description %>.</p>
-                  <% if event.pet.photo.attached? %>
-                    <%= image_tag event.pet.photo, class: "avatar" %>
-                  <% else %>
-                    <%= image_tag "dachshund-filhote.jpg", class: "avatar" %>
-                  <% end %>
-              </div>
-              <div class="task-card-hour">
-                <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
-                <div class=>
-                <% if event.user.photo.attached? %>
-                    <%= image_tag event.user.photo, class: "avatar" %>
-                <% else %>
-                  <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar" %>
-                <% end %>
+      <div class="tasks-home">
+        <% events.each do |event|%>
+        <%# Tasks do dia %>
+          <%= link_to event.task do %>
+              <div class="task-card">
+                <div class="task-card-icon">
+                  <%= render "shared/icon_tasks", category: event.task.category %>
+                </div>
+                <div class="task-card-description">
+                  <p><strong><%= event.task.category %></strong></p>
+                  <p><%= event.task.description.truncate(35) %>.</p>
+                  <%= render "shared/avatar_xs_pet", pet: event.pet %>
+                </div>
+                <div class="task-card-hour">
+                  <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
+                  <div>
+                    <%= render "shared/avatar_user", user: event.user %>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
 
   </div>
