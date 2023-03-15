@@ -17,14 +17,14 @@
       <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Entrar em família", class: "btn btn-primary" %>
+      <%= f.button :submit, "Entre em uma família", class: "btn btn-primary" %>
     </div>
   <% end %>
 ------------------------
-  <h2>Create new</h2>
+  <h2>Criar nova familia</h2>
   <%= simple_form_for @family do |f| %>
   <div class="form-inputs">
-    <%= f.input :name, placeholder: "Family name"%>
+    <%= f.input :name, placeholder: "Nome da família"%>
     <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
   <div class="form-actions">
