@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-home">
 
 
   <% if current_user.admin? %>
@@ -8,8 +8,8 @@
 
   <% end %>
 
-  <h1>Create a new family or join a family</h1>
-  <h2>Select existing</h2>
+  <h1>Criar família ou entrar em existente</h1>
+  <h2>Selecionar família</h2>
   <%= simple_form_for @family, url: families_join_path do |f| %>
     <div class="form-inputs">
       <%= f.input :name, collection: @families, input_html: {
@@ -18,7 +18,7 @@
       <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Join family", class: "btn btn-primary" %>
+      <%= f.button :submit, "Entrar em família", class: "btn btn-primary" %>
     </div>
   <% end %>
 ------------------------
