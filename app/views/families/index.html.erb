@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Families</h1>
-  <h2>your family: <%= current_user.family.name %></h2>
+  <h1>Famílias</h1>
+  <h2>sua família: <%= current_user.family.name %></h2>
 
   <% @families.each do |family| %>
     <li><%= link_to family.name, family_path(family)  %></li>

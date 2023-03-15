@@ -7,12 +7,12 @@
 
   <% if @task.schedule.present? %>
     <p>Pet: <%= @task.schedule.pet.name %></p>
-    <p>User: <%= @task.schedule.user.name %></p>
-    <p>Start time: <%= @task.schedule.start_time %></p>
-    <p>End time: <%= @task.schedule.end_time %></p>
-    <p>Due time: <%= @task.schedule.due_time %></p>
+    <p>Usuário: <%= @task.schedule.user.name %></p>
+    <p>Início: <%= @task.schedule.start_time %></p>
+    <p>Fim: <%= @task.schedule.end_time %></p>
+    <p>Horário: <%= @task.schedule.due_time %></p>
   <% else %>
-    <p>No schedule found.</p>
+    <p>Agendamento inexistente.</p>
   <% end %>
 
   <%=link_to "Voltar a tarefas", tasks_path  %>

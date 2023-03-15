@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>Edit <%= resource_name.to_s.humanize %></h1>
+  <h1>Editar <%= resource_name.to_s.humanize %></h1>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -9,20 +9,20 @@
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <p>Aguardando confirmação de: <%= resource.unconfirmed_email %></p>
       <% end %>
 
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "Nova senha" } %>
       <%= f.input :password_confirmation,
                   required: false,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "Nova senha" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
-                  input_html: { autocomplete: "current-password" } %>
+                  input_html: { autocomplete: "Senha atual" } %>
     </div>
 
     <div class="form-actions">
@@ -31,11 +31,11 @@
   <% end %>
 
   <div style="margin: 16px 0;">
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-lg w-100 rounded-4" %>
+    <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?", turbo_confirm: "Você tem certeza?" }, method: :delete, class: "btn btn-danger btn-lg w-100 rounded-4" %>
   </div>
 
   <div class="w-100 d-flex justify-content-center align-items-flex-end">
-    <%= link_to "Back", :back, class: "btn btn-secondary btn-lg w-100 rounded-4" %>
+    <%= link_to "Voltar", :back, class: "btn btn-secondary btn-lg w-100 rounded-4" %>
   </div>
 
 </div>
