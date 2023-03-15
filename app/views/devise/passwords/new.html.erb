@@ -1,4 +1,4 @@
-<h2>Forgot your password?</h2>
+<h2>Esqueceu sua senha?</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -7,11 +7,11 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "Email" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.button :submit, "Me envie as instruções de recuperação de senha" %>
   </div>
 <% end %>
 

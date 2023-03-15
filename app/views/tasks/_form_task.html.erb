@@ -1,14 +1,14 @@
 <%= simple_form_for(task) do |f| %>
     <div class="form-inputs">
-      <%= f.input :category, collection: Task::TASK_CATEGORIES %>
-      <%= f.input :description, input_html: { :maxlength => 60 }%>
+      <%= f.input :category, label: "Categoria", collection: Task::TASK_CATEGORIES %>
+      <%= f.input :description, label: "Descrição", input_html: { :maxlength => 60 }%>
       <%= f.fields_for :schedule do |s| %>
-        <%= s.input :start_time, html5: true %>
-        <%= s.input :end_time, html5: true %>
-        <%= s.input :due_time %>
-        <%= s.input :user_id, collection: current_user.family.users %>
-        <%= s.input :pet_id, collection: current_user.family.pets %>
-        <%= s.label "Frequencia" %>
+        <%= s.input :start_time, label: "Inicio", html5: true %>
+        <%= s.input :end_time, label: "Fim", html5: true %>
+        <%= s.input :due_time, label: "Horário" %>
+        <%= s.input :user_id, label: "Usuário", collection: current_user.family.users %>
+        <%= s.input :pet_id, label: "Pet", collection: current_user.family.pets %>
+        <%= s.label "Frequência" %>
         <%= s.select_recurring :recurring_rule, nil, allow_blank: true %>
       <% end %>
     </div>

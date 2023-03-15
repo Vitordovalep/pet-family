@@ -5,8 +5,17 @@ class PagesController < ApplicationController
     authorize @family
     @pets = Pet.includes(breed: :species).where(family_id: @family)
     # Calendar
-    @tasks = policy_scope(Task)
-    @schedules = Schedule.includes(:pet, :task, :user).all
+
+    if params[:query].present?
+      @schedules = Schedule.includes(:pet, :task, :user).where(pet_id: params[:query])
+    else
+      @schedules = Schedule.includes(:pet, :task, :user).where(pet: @pets)
+    end
+
     @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) }
+    respond_to do |format|
+      format.html
+      format.text { render partial: "calendar", locals: { calendar_schedules: @calendar_schedules }, formats: [:html] }
+    end
   end
 end
