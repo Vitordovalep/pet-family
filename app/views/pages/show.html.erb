@@ -1,8 +1,12 @@
-<div class="container-pages">
+<div class="container-pages" data-controller="filter-pets">
     <h1>Lista de Tarefas</h1>
       <div class="header-home">
+          <%# Pet filters %>
+          <%= link_to "see all" , root_path, data: {action: "click->filter-pets#filter"} %>
           <% @pets.each do |pet| %>
-            <%= render "shared/avatar_small_pet", pet: pet %>
+            <%= link_to root_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
+              <%= render "shared/avatar_small_pet", pet: pet %>
+            <% end %>
           <% end %>
           <div class="add-pet-btn btn">
             <%= link_to new_family_pet_path(@family) do %>
@@ -10,36 +14,10 @@
             <% end %>
           </div>
       </div>
-  <div>
-    <%# calendario %>
 
-    <%= calendar(number_of_days: 1, events: @calendar_schedules) do |day, events|%>
-      <div class="tasks-home">
-        <% events.each do |event|%>
-        <%# Tasks do dia %>
-          <%= link_to event.task do %>
-              <div class="task-card">
-                <div class="task-card-icon">
-                  <%= render "shared/icon_tasks", category: event.task.category %>
-                </div>
-                <div class="task-card-description">
-                  <p><strong><%= event.task.category %></strong></p>
-                  <p><%= event.task.description.truncate(35) %>.</p>
-                  <%= render "shared/avatar_xs_pet", pet: event.pet %>
-                </div>
-                <div class="task-card-hour">
-                  <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
-                  <div>
-                    <%= render "shared/avatar_user", user: event.user %>
-                  </div>
-                </div>
-              </div>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+  <%# Calendario %>
+  <%= render "calendar", calendar_schedules: @calendar_schedules %>
 
-  </div>
 </div>
 
 <%= link_to new_task_path do %>
