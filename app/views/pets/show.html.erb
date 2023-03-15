@@ -12,8 +12,12 @@
   <% @pets.each do |pet|%>
     <%= link_to edit_pet_path(pet) do %>
       <div class="card-white">
-        <%= image_tag pet.photo, class: "avatar-medium" %>
-        <p><%= pet.name %></p>
+        <% if pet.photo.attached? %>
+          <%= cl_image_tag pet.photo.key,  class: "avatar-medium" %>
+        <% else %>
+          <%= image_tag "avatar_dog.svg", class: "avatar-medium" %>
+        <% end %>
+        <h2><%= pet.name %></h2>
       </div>
     <% end %>
   <% end %>
