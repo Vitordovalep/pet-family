@@ -3,7 +3,7 @@
     <div class="tasks-home">
       <% events.each do |event|%>
       <%# Tasks do dia %>
-        <%= link_to event.task do %>
+        <%= link_to event.sort_by(&:due_time).task do %>
             <div class="task-card">
               <div class="task-card-icon">
                 <%= render "shared/icon_tasks", category: event.task.category %>
