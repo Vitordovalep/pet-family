@@ -4,3 +4,10 @@
   padding-bottom: 80px;
   background-image: linear-gradient(rgba(139, 195, 74, 0.4) , #f4f4f4);
  }
+
+.container-fixed {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4;
+}
+

@@ -1,16 +1,15 @@
 <div class="container-pages">
-
-  <h1>Lista de Tarefas</h1>
-  <div class="header-home">
-      <% @pets.each do |pet| %>
-        <%= render "shared/avatar_small_pet", pet: pet %>
-      <% end %>
-      <div class="add-pet-btn btn">
-        <%= link_to new_family_pet_path(@family) do %>
-          <i class="fa-solid fa-circle-plus fa-spin"></i>
-        <% end %>
+    <h1>Lista de Tarefas</h1>
+      <div class="header-home">
+          <% @pets.each do |pet| %>
+            <%= render "shared/avatar_small_pet", pet: pet %>
+          <% end %>
+          <div class="add-pet-btn btn">
+            <%= link_to new_family_pet_path(@family) do %>
+              <i class="fa-solid fa-circle-plus"></i>
+            <% end %>
+          </div>
       </div>
-  </div>
   <div>
     <%# calendario %>
 
