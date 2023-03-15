@@ -89,6 +89,7 @@ gem "pundit"
 
 gem "open-uri"
 
+gem 'rails-i18n'
 
 gem "rails_admin", "3.0"
 

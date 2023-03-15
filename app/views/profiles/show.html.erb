@@ -1,17 +1,21 @@
-<div class="container">
+<div class="container-pages">
+  <h1>Família e membros</h1>
   <div class="card-header">
-    <h1>Família e membros.</h1>
     <% if @family.photo.attached? %>
       <%= image_tag @family.photo, class: "avatar-large" %>
     <% else %>
-      <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar-large" %>
+      <%= image_tag "avatar_responsável.svg", class: "avatar-large" %>
     <% end %>
   </div>
 
 
 <% @users.each do |user|%>
 <div class="card-white">
-  <%= image_tag user.photo, class: "avatar-medium" %>
+  <% if user.photo.attached? %>
+    <%= cl_image_tag user.photo.key,  class: "avatar-medium" %>
+  <% else %>
+    <%= image_tag "avatar_responsável.svg", class: "avatar-large" %>
+  <% end %>
   <p><%= user.name %></p>
 </div>
 <% end %>

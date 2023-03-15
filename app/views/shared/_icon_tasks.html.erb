@@ -1,0 +1,21 @@
+<% case category %>
+<% when Task::TASK_CATEGORIES[0] %>
+  <%= image_tag "bath.svg" %>
+
+<% when Task::TASK_CATEGORIES[1] %>
+  <%= image_tag "dish.svg" %>
+
+<% when Task::TASK_CATEGORIES[2] %>
+  <%= image_tag "vet.svg" %>
+
+<% when Task::TASK_CATEGORIES[3] %>
+  <%= image_tag "test.svg" %>
+
+<% when Task::TASK_CATEGORIES[4] %>
+  <%= image_tag "pill.svg" %>
+
+<% when Task::TASK_CATEGORIES[5] %>
+  <%= image_tag "walk_dog.svg" %>
+<% else %>
+  <%= image_tag "outros.svg" %>
+<% end %>

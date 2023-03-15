@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container-pages">
 
   <% if current_user.admin? %>
     <%= link_to "Ir para a área de administrador", rails_admin_path  %>
@@ -8,8 +7,8 @@
 
   <% end %>
 
-  <h1>Criar uma nova família ou ingressar em uma existente</h1>
-  <h2>Selecionar família existente</h2>
+  <h1>Criar família ou entrar em existente</h1>
+  <h2>Selecionar família</h2>
   <%= simple_form_for @family, url: families_join_path do |f| %>
     <div class="form-inputs">
       <%= f.input :name, collection: @families, input_html: {

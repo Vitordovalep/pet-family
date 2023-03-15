@@ -1,10 +1,10 @@
 <div data-controller="list-breeds">
   <%= simple_form_for([@family, @pet]) do |f| %>
       <div class="form-inputs">
-        <%= f.input :name, label: "Nome", placeholder: "Nome do pet" %>
-        <%= f.input :species, label: "Espécie", collection: Species.all, placeholder: "Espécie do pet", input_html: { data: { action: "change->list-breeds#listContent", list_breeds_target: "species" } } %>
-        <%= f.input :breed_id, label: "Raça", collection: [], placeholder: "Raça do pet", input_html: { data: { list_breeds_target: "breeds" } } %>
-        <%= f.input :birthday, label: "Nascimento", html5: true %>
+        <%= f.input :name, label: 'Nome:',placeholder: "Pet name" %>
+        <%= f.input :species, label: 'Espécie:', collection: Species.all, placeholder: "Pet specie", input_html: { data: { action: "change->list-breeds#listContent", list_breeds_target: "species" } } %>
+        <%= f.input :breed_id, label: 'Raça:',collection: [], placeholder: "Pet breed", input_html: { data: { list_breeds_target: "breeds" } } %>
+        <%= f.input :birthday, label: 'Data de nascimento:',html5: true %>
         <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
       </div>
       <div class="form-actions">

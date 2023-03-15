@@ -1,5 +1,12 @@
 .container-pages {
-  margin: 0 0 120px 0;
+  margin: 0;
   text-align: center;
-  height: 100vh;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, rgba(139,195,74,0.4) 0%, rgba(244,244,244,1) 50px);
  }
+
+.container-fixed {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4;
+}

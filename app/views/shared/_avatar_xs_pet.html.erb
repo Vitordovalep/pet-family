@@ -1,0 +1,5 @@
+<% if pet.photo.attached? %>
+  <%= cl_image_tag pet.photo.key,  class: "avatar-xs" %>
+<% else %>
+  <%= image_tag "avatar_dog.svg", class: "avatar-xs" %>
+<% end %>

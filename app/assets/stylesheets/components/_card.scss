@@ -1,4 +1,5 @@
 .card-white {
+  background-color: #ffffff;
   display: flex;
   font-size: 28px;
   font-weight: bold;
@@ -8,12 +9,25 @@
   text-decoration: none;
   border: 2px solid #D9D9D9;
   border-radius: 10px;
-  box-shadow: 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 4px rgba(217, 217, 217, 0.6);
   height: 100px;
   width: 90%;
   margin: auto;
   margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
 }
+
+.item {
+  flex-grow: 1;
+}
+
 .card-header {
   display: flex;
   flex-direction: column;
@@ -53,8 +67,7 @@
 }
 
 .tasks-home {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin: 16px 0;
 }
 
 .task-card {
@@ -62,37 +75,41 @@
   justify-content: space-between;
   border: 2px solid #D9D9D9;
   border-radius: 10px;
-  box-shadow: 4px 8px #D9D9D9;
-  width: 90%;
-  height: auto;
-  margin: auto;
-  margin-bottom: 16px;
+  box-shadow: 0 4px 4px rgba(217, 217, 217, 0.6);
+  width: 95%;
+  margin: 8px auto;
+  padding: 12px 16px ;
 
   .task-card-icon {
-    color: #D9D9D9;
-    padding: 8px 8px 8px 24px;
-    text-align: left;
-    position:relative;
-		top:25%;
+    display: flex;
+    align-items: center;
   }
 
   .task-card-description {
     text-align: left;
-    margin-bottom: 12px;
+    padding: 0 16px;
     font-size: auto;
     width: 70%;
-    p{
-      margin-bottom: 4px;
-    }
+
   }
 
   .task-card-hour {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 8px 24px 8px 8px;
-    font-size: large;
-    padding-bottom: 16px;
+    font-size: auto;
     align-items: center;
+  }
+
+}
+
+.task-card-description {
+
+  img {
+    margin-top: 8px;
+  }
+
+  p{
+    margin: 0;
   }
 }
