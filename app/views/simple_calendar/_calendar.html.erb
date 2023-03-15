@@ -1,8 +1,10 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <p>
+      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    </p>
   </div>
 
   <table class="table table-striped">
@@ -10,19 +12,19 @@
       <tr>
         <th>
           <% date_range.slice(0, 7).each do |day| %>
-            <%= t('date.abbr_day_names')[(day-1).wday] %>
+            <p><%= t('date.abbr_day_names')[(day-1).wday] %></p>
           <% end %>
         </th>
 
         <th>
           <% date_range.slice(0, 7).each do |day| %>
-            <%= t('date.abbr_day_names')[(day).wday] %>
+            <p><%= t('date.abbr_day_names')[(day).wday] %></p>
           <% end %>
         </th>
 
         <th>
           <% date_range.slice(0, 7).each do |day| %>
-            <%= t('date.abbr_day_names')[(day+1).wday] %>
+            <p><%= t('date.abbr_day_names')[(day+1).wday] %></p>
           <% end %>
         </th>
       </tr>
@@ -32,10 +34,10 @@
       <% date_range.each_slice(7) do |week| %>
         <%= content_tag :tr, class: calendar.tr_classes_for(week) do %>
           <% week.each do |day| %>
-            <td><%= (day-1).day.to_s %></td>
+            <td><p><%= (day-1).day.to_s %></p></td>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <div><strong><%= (day).day.to_s %></strong></div>
-            <td><%= (day+1).day.to_s %></td>
+              <div><p><strong><%= (day).day.to_s %></strong></p></div>
+            <td><p><%= (day+1).day.to_s %></p></td>
             <% end %>
           <% end %>
         <% end %>
