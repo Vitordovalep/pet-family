@@ -7,9 +7,9 @@
   border: 5px solid #8BC34A;
   border-radius: 50%;
   transition-duration: 0.4s;
-  position:sticky;
-  bottom: 100px;
-  left: 365px;
+  position:fixed;
+  bottom: 84px;
+  right: -12px;
 
   &:hover {
     background-color: #FFFFFF;
