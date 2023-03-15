@@ -1,11 +1,7 @@
 <div class="container-pages">
   <h1>Olá, <%= @user.name %>!</h1>
   <div class="card-header">
-    <% if @user.photo.attached? %>
-      <%= image_tag @user.photo, class: "avatar-large" %>
-    <% else %>
-      <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar-large" %>
-    <% end %>
+    <%= render "shared/avatar_large_user", user: @user %>
   </div>
 
   <div class="wrap-card-white">
