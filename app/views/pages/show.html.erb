@@ -18,10 +18,8 @@
   </div>
   <div>
     <%# calendario %>
-    <h1>Calendário</h1>
 
     <%= calendar(number_of_days: 1, events: @calendar_schedules) do |day, events|%>
-    <div><strong><%= day.day.to_s %></strong></div>
       <% events.each do |event|%>
           <%# Tasks do dia %>
         <%= link_to event.task do %>
