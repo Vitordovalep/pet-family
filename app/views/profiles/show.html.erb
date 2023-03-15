@@ -14,8 +14,8 @@
   <% if user.photo.attached? %>
     <%= cl_image_tag user.photo.key,  class: "avatar-medium" %>
   <% else %>
-    <%= image_tag "avatar_responsável.svg", class: "avatar-large" %>
+    <%= image_tag "avatar_responsável.svg", class: "avatar-medium" %>
   <% end %>
-  <p><%= user.name %></p>
+  <h2><%= user.name %></h2>
 </div>
 <% end %>
