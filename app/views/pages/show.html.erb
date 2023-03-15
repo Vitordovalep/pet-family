@@ -3,7 +3,7 @@
   <h1>Lista de Tarefas</h1>
   <div class="header-home">
       <% @pets.each do |pet| %>
-        <%= render "avatar_pet", pet: pet %>
+        <%= render "shared/avatar_small_pet", pet: pet %>
       <% end %>
       <div class="add-pet-btn btn">
         <%= link_to new_family_pet_path(@family) do %>
@@ -13,27 +13,25 @@
   </div>
   <div>
     <%# calendario %>
-    <h2>Calendário</h2>
 
     <%= calendar(number_of_days: 1, events: @calendar_schedules) do |day, events|%>
-    <div><strong><%= day.day.to_s %></strong></div>
       <div class="tasks-home">
         <% events.each do |event|%>
         <%# Tasks do dia %>
           <%= link_to event.task do %>
               <div class="task-card">
                 <div class="task-card-icon">
-                  <%= render "icon_tasks", category: event.task.category %>
+                  <%= render "shared/icon_tasks", category: event.task.category %>
                 </div>
                 <div class="task-card-description">
                   <p><strong><%= event.task.category %></strong></p>
-                  <p><%= event.task.description.truncate(40) %>.</p>
-                  <%= render "avatar_pet", pet: event.pet %>
+                  <p><%= event.task.description.truncate(35) %>.</p>
+                  <%= render "shared/avatar_xs_pet", pet: event.pet %>
                 </div>
                 <div class="task-card-hour">
                   <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
                   <div>
-                    <%= render "avatar_user", user: event.user %>
+                    <%= render "shared/avatar_user", user: event.user %>
                   </div>
                 </div>
               </div>

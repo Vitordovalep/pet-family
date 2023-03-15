@@ -1,7 +1,19 @@
 .simple-calendar {
-
   .day {
     --bs-table-accent-bg: transparent !important;
+  }
+
+  // thead tr{
+  //   display: flex;
+  //   th {
+  //     flex-grow: 1;
+  //     flex
+  //   }
+  // }
+
+  table{
+    table-layout: fixed;
+    width: 100%;
   }
 
   .wday-0 {}
