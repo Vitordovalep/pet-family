@@ -2,10 +2,13 @@
   background-color: #ffffff;
   padding: 16px 16px;
   display: flex;
-  font-size: 28px;
   font-weight: bold;
+<<<<<<< HEAD
   color: #888888;
   justify-content: space-between;
+=======
+  justify-content: space-evenly;
+>>>>>>> master
   align-items: center;
   text-decoration: none;
   border: 2px solid #D9D9D9;
@@ -40,24 +43,13 @@
     font-weight: bold;
   }
 }
-.card-white .p {
-  text-decoration: none;
-  text-decoration-line: none;
-  font-size: 28px;
-}
-.card-white a:active {
-  text-decoration: none;
-  text-decoration-line: none;
-}
+
 .card-white h1 {
-  text-decoration: none;
   margin: 16px 0 16px 0;
 }
 
 .wrap-card-white{
-  text-decoration: none;
   margin: 24px 0 40px 0;
-  text-decoration-line: none;
 }
 .card-white-item-left {
   font-size: 32px;

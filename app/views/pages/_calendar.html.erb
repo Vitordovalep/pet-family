@@ -1,9 +1,9 @@
 <div data-filter-pets-target="calendar">
   <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
     <div class="tasks-home">
-      <% events.each do |event|%>
+      <% events.sort_by(&:due_time).each do |event|%>
       <%# Tasks do dia %>
-        <%= link_to event.sort_by(&:due_time).task do %>
+        <%= link_to event.task do %>
             <div class="task-card">
               <div class="task-card-icon">
                 <%= render "shared/icon_tasks", category: event.task.category %>
