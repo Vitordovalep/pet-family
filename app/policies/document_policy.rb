@@ -7,7 +7,7 @@ class DocumentPolicy < ApplicationPolicy
   end
 
   def show?
-    # @record.schedule.user.family == user.family || user.admin?
+    @record.pet.family == user.family || user.admin?
   end
 
   def create?
@@ -15,14 +15,14 @@ class DocumentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    # @record.schedule.user.family == user.family
+    @record.pet.family == user.family || user.admin?
   end
 
   def edit?
-    # @record.schedule.user.family == user.family
+    @record.pet.family == user.family || user.admin?
   end
 
   def update?
-    # @record.schedule.user.family == user.family
+    @record.pet.family == user.family || user.admin?
   end
 end

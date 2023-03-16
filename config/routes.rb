@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resource :profiles, only: %i[show update]
 
   resources :tasks
-  resources :documents, only: %i[index show new create]
+  resources :documents
 
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection

@@ -3,6 +3,7 @@
       <%= f.input :name, label: "Nome" %>
       <%= f.input :description, label: "Descrição", input_html: { :maxlength => 120 }%>
       <%= f.input :pet_id, label: "Pet", collection: current_user.family.pets %>
+      <%= f.input :date, label: "Data do documento", html5: true %>
       <%= f.input :files, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form-actions">

@@ -18,7 +18,7 @@
 
     <%=link_to "Voltar", root_path, class: "btn btn-secondary btn-lg" %>
     <%=link_to "Editar tarefa", edit_task_path(@task), class: "btn btn-primary btn-lg"  %>
-    <%=link_to "Deletar tarefa", task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-lg" %>
+    <%=link_to "Deletar tarefa", task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-lg" %>
   </div>
 
 </div>
