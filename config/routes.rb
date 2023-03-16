@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root to: "pages#landing-page"
+  root to: "pages#show"
 
   authenticate :user, ->(user) { user.admin? } do
     mount Blazer::Engine, at: "blazer"
@@ -21,9 +21,14 @@ Rails.application.routes.draw do
 
   resource :profiles, only: %i[show update]
 
-  resources :tasks
+  resources :tasks do
+    resources :schedule_exceptions
+  end
+
+  resources :documents
 
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection
   end
+
 end
