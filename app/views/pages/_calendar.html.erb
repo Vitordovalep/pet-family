@@ -1,27 +1,27 @@
 <div data-filter-pets-target="calendar">
-  <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
-    <div class="tasks-home">
-      <% events.sort_by(&:due_time).each do |event|%>
-      <%# Tasks do dia %>
-        <%= link_to event.task do %>
-            <div class="task-card">
-              <div class="task-card-icon">
-                <%= render "shared/icon_tasks", category: event.task.category %>
-              </div>
-              <div class="task-card-description">
-                <p><strong><%= event.task.category %></strong></p>
-                <p><%= event.task.description.truncate(35) %>.</p>
-                <%= render "shared/avatar_xs_pet", pet: event.pet %>
-              </div>
-              <div class="task-card-hour">
-                <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
-                <div>
-                  <%= render "shared/avatar_small_user", user: event.user %>
+    <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
+      <div class="tasks-home">
+        <% events.sort_by(&:due_time).each do |event|%>
+        <%# Tasks do dia %>
+          <%= link_to event.task do %>
+              <div class="task-card">
+                <div class="task-card-icon">
+                  <%= render "shared/icon_tasks", category: event.task.category %>
+                </div>
+                <div class="task-card-description">
+                  <p><strong><%= event.task.category %></strong></p>
+                  <p><%= event.task.description.truncate(35) %>.</p>
+                  <%= render "shared/avatar_xs_pet", pet: event.pet %>
+                </div>
+                <div class="task-card-hour">
+                  <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
+                  <div>
+                    <%= render "shared/avatar_small_user", user: event.user %>
+                  </div>
                 </div>
               </div>
-            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
 </div>
