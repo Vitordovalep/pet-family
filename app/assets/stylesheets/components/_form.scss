@@ -4,6 +4,8 @@
   border-radius: 4px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   margin-top: 5px;
+  justify-content: center;
+  align-items: center;
   .btn {
     width: 100%;
     margin-top: 12px;
@@ -11,4 +13,10 @@
     color: #fff;
     font-weight: bold;
   }
+}
+
+.form-inputs {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }

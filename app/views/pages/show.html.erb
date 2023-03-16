@@ -2,7 +2,7 @@
     <h1>Lista de Tarefas</h1>
       <div class="header-home">
           <%# Pet filters %>
-          <%= link_to "see all" , root_path, data: {action: "click->filter-pets#filter"} %>
+          <%= link_to "Todos" , root_path, data: {action: "click->filter-pets#filter"} %>
           <% @pets.each do |pet| %>
             <%= link_to root_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
               <%= render "shared/avatar_small_pet", pet: pet %>
@@ -14,10 +14,8 @@
             <% end %>
           </div>
       </div>
-
   <%# Calendario %>
   <%= render "calendar", calendar_schedules: @calendar_schedules %>
-
 </div>
 
 <%= link_to new_task_path do %>
