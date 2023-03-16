@@ -21,9 +21,12 @@ Rails.application.routes.draw do
 
   resource :profiles, only: %i[show update]
 
-  resources :tasks
+  resources :tasks do
+    resources :schedule_exceptions
+  end
 
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection
   end
+
 end

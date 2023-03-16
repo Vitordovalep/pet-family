@@ -12,7 +12,11 @@ class PagesController < ApplicationController
       @schedules = Schedule.includes(:pet, :task, :user).where(pet: @pets)
     end
 
-    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) }
+    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) } + ScheduleException.all.to_a
+    @events_schedule = []
+    @events_schedule_exceptions = []
+
+
     respond_to do |format|
       format.html
       format.text { render partial: "calendar", locals: { calendar_schedules: @calendar_schedules }, formats: [:html] }
