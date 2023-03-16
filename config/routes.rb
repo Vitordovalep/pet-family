@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :schedule_exceptions
   end
 
+  resources :documents
+
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection
   end

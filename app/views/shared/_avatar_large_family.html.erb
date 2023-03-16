@@ -1,0 +1,5 @@
+   <% if family.photo.attached? %>
+      <%= image_tag family.photo, class: "avatar-large" %>
+    <% else %>
+      <%= image_tag "avatar_responsável.svg", class: "avatar-large" %>
+    <% end %>

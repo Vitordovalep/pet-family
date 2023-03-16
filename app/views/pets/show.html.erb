@@ -1,13 +1,8 @@
 <div class="container-pages">
   <h1>Pets da família</h1>
   <div class="card-header">
-    <% if @family.photo.attached? %>
-      <%= image_tag @family.photo, class: "avatar-large" %>
-    <% else %>
-      <%= image_tag "https://res.cloudinary.com/doohtp0fi/image/upload/v1678725327/default_avatar_x8awn9.jpg", class: "avatar-large" %>
-    <% end %>
+    <%= render "shared/avatar_large_family", family: @family %>
   </div>
-
 
   <% @pets.each do |pet|%>
     <%= link_to edit_pet_path(pet) do %>

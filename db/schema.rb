@@ -106,6 +106,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_194439) do
     t.index ["species_id"], name: "index_breeds_on_species_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "date"
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_documents_on_pet_id"
+  end
+
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -177,6 +187,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_194439) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "breeds", "species"
+  add_foreign_key "documents", "pets"
   add_foreign_key "pets", "families"
   add_foreign_key "schedule_exceptions", "schedules"
   add_foreign_key "schedules", "pets"

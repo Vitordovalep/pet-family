@@ -14,7 +14,6 @@
                   <p><%= event.task.description.truncate(35) %>.</p>
                   <%= render "shared/avatar_xs_pet", pet: event.pet %>
                 </div>
-
                 <div class="task-card-hour">
                   <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
                   <div>
