@@ -6,6 +6,7 @@ class Pet < ApplicationRecord
   has_many :users, through: :family
   has_many :tasks, through: :schedule
   has_one_attached :photo
+  has_many :documents, dependent: :destroy
 
   # SPECIES = %w[Dog Cat Horse Reptile Hamster]
   # BREED = %w[nhoquexairi daxirraund pinxi]

@@ -2,9 +2,9 @@ class Schedule < ApplicationRecord
   belongs_to :pet
   belongs_to :task
   belongs_to :user
+  has_many :schedule_exceptions, dependent: :destroy
 
   validates :start_time, :end_time, :due_time, :pet_id, :user_id, presence: true
-
 
   serialize :recurring_rule, Hash
   def recurring_rule=(value)
@@ -22,6 +22,9 @@ class Schedule < ApplicationRecord
   def schedule(start)
     schedule = IceCube::Schedule.new(start)
     schedule.add_recurrence_rule(rule)
+    schedule_exceptions.each do |exception|
+      schedule.add_exception_time(exception.start_time)
+    end
     schedule
   end
 
@@ -30,7 +33,14 @@ class Schedule < ApplicationRecord
       [self]
     else
       schedule(start_d).occurrences(end_d).map do |date|
-        Schedule.new(id: id, user: user, task: task, pet: pet, due_time: due_time, start_time: date)
+        Schedule.new(
+          id: id,
+          user: user,
+          task: task,
+          pet: pet,
+          due_time: due_time,
+          start_time: date
+        )
       end
     end
   end

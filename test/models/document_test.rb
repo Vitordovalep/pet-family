@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SchedulesControllerTest < ActionDispatch::IntegrationTest
+class DocumentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

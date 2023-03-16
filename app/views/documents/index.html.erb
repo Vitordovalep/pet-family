@@ -1,0 +1,26 @@
+<div class="container-pages">
+
+  <h1>Documentos</h1>
+
+  <% @documents.each do |document| %>
+    <%= link_to document_path(document) do %>
+      <div class="task-card">
+        <div class="task-card-icon">
+          <%= image_tag "outros.svg" %>
+        </div>
+        <div class="task-card-description">
+          <p><strong><%= document.name %></strong></p>
+          <p><%= document.description.truncate(35) %>.</p>
+        </div>
+        <div class="task-card-hour">
+          <%= render "shared/avatar_small_pet",  pet: document.pet %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<%= link_to new_document_path do %>
+  <i id="sticky-btn", class="fa-solid fa-circle-plus fa-3x"></i>
+<% end %>
