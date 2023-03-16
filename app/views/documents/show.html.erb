@@ -1,0 +1,16 @@
+<div class="container-pages">
+
+  <h1><%= @document.name %></h1>
+
+  <p><%= @document.description %></p>
+
+  <% if @document.files.attached? %>
+    <% @document.files.each do |file| %>
+      <%= cl_image_tag file.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Editar", edit_document_path(@document)  %>
+  <%=link_to "Deletar documento", document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-lg" %>
+
+</div>
