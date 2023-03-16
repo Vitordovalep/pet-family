@@ -11,7 +11,6 @@
     <p>Data de início: <%= @task.schedule.start_time.strftime('%d/%m/%Y') %></p>
     <p>Data de término: <%= @task.schedule.end_time.strftime('%d/%m/%Y') %></p>
     <p>Horário: <%= @task.schedule.due_time.strftime('%H:%M') %></p>
-    <%= @task.schedule.done %>
   <% else %>
     <p>Nenhuma atividade registrada.</p>
   <% end %>
