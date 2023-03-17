@@ -4,7 +4,6 @@
   display: flex;
   font-weight: bold;
   justify-content: space-between;
-  padding: 16px 16px;
   color: #888888;
   align-items: center;
   text-decoration: none;
@@ -114,4 +113,27 @@
 .card-body {
   background: #f4f4f4;
   border-style: none;
+}
+
+.lp-card {
+  background-color: #ffffff;
+  padding: 20px;
+  justify-content: center;
+  color: #888888;
+  align-items: center;
+  border: 2px solid #D9D9D9;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(217, 217, 217, 0.6);
+  margin: auto;
+  margin-bottom: 16px;
+
+  h4 {
+    margin-bottom: 8px;
+    font-weight: bold;
+    justify-content: center;
+  }
+
+  p {
+    margin: 0;
+  }
 }
