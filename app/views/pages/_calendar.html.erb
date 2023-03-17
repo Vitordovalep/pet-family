@@ -1,4 +1,4 @@
-<div data-filter-pets-target="calendar">
+<div data-filter-pets-target="card">
   <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
     <div class="tasks-home">
       <% events_schedule, events_schedule_exceptions = events.partition { |e| e.is_a?(Schedule) } %>
