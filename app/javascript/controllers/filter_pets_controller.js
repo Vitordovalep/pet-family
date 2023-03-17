@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter-pets"
 export default class extends Controller {
-  static targets = ["card", "optionCard"]
+  static targets = ["card"]
 
   connect() {
     console.log("coneccted on dropdown");
@@ -17,10 +17,4 @@ export default class extends Controller {
       this.cardTarget.outerHTML = data
     })
   }
-
-  displayOptions(event) {
-    event.preventDefault();
-    this.optionCardTarget.classList.toggle('d-none')
-  }
-
 }
