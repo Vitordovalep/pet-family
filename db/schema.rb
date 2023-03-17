@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_194439) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_183504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,6 +122,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_194439) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.text "message"
+    t.bigint "schedule_id"
+    t.bigint "document_id"
+    t.bigint "user_id"
+    t.bigint "family_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_notifications_on_document_id"
+    t.index ["family_id"], name: "index_notifications_on_family_id"
+    t.index ["schedule_id"], name: "index_notifications_on_schedule_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.date "birthday"
@@ -188,6 +202,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_194439) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "breeds", "species"
   add_foreign_key "documents", "pets"
+  add_foreign_key "notifications", "documents"
+  add_foreign_key "notifications", "families"
+  add_foreign_key "notifications", "schedules"
+  add_foreign_key "notifications", "users"
   add_foreign_key "pets", "families"
   add_foreign_key "schedule_exceptions", "schedules"
   add_foreign_key "schedules", "pets"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: "pages#show"
@@ -26,9 +27,9 @@ Rails.application.routes.draw do
   end
 
   resources :documents
+  resources :notifications
 
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection
   end
-
 end

@@ -3,8 +3,11 @@ class Schedule < ApplicationRecord
   belongs_to :task
   belongs_to :user
   has_many :schedule_exceptions, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :start_time, :end_time, :due_time, :pet_id, :user_id, presence: true
+
+  after_create :add_schedule_notification
 
   serialize :recurring_rule, Hash
   def recurring_rule=(value)
@@ -42,6 +45,14 @@ class Schedule < ApplicationRecord
           start_time: date
         )
       end
+    end
+  end
+
+  def add_schedule_notification
+    Notification.create(schedule: self, message: "Você é responsável por uma nova tarefa: #{task.category}", user: user, family: user.family)
+
+    if start_time == Date.today && due_time == Time.now + 1.hour
+      Notification.create(schedule: self, message: "Você tem uma tarefa em 1 hora: #{task.category}", user: user, family: user.family)
     end
   end
 end
