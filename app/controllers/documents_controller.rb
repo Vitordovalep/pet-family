@@ -2,7 +2,19 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update destroy]
 
   def index
-    @documents = policy_scope(Document)
+    @pets = Pet.includes(breed: :species).where(family_id: current_user.family)
+
+    if params[:query].present?
+      @documents = policy_scope(Document).where(pet_id: params[:query])
+    else
+      # raise
+      @documents = policy_scope(Document)
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "cards_document", locals: { documents: @documents }, formats: [:html] }
+    end
   end
 
   def show
