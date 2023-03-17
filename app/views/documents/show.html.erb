@@ -6,7 +6,16 @@
 
   <% if @document.files.attached? %>
     <% @document.files.each do |file| %>
-      <%= cl_image_tag file.key, height: 300, width: 400, crop: :fill %>
+    <%= link_to file.url, target: :_blank do %>
+      <%= cl_image_tag file.key %>
+    <% end %>
+
+      <%= link_to file.url, target: :_blank do %>
+        <p>Download this file <i class="fa-solid fa-file-arrow-down"></i></p>
+      <% end %>
+
+
+
     <% end %>
   <% end %>
 
