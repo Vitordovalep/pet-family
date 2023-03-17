@@ -4,7 +4,7 @@ class Schedule < ApplicationRecord
   belongs_to :user
   has_many :schedule_exceptions, dependent: :destroy
 
-  validates :start_time, :end_time, :due_time, :pet_id, :user_id, presence: true
+  validates :start_time, :due_time, :pet_id, :user_id, presence: true
 
   serialize :recurring_rule, Hash
   def recurring_rule=(value)
