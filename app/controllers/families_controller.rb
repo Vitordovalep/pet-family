@@ -25,7 +25,7 @@ class FamiliesController < ApplicationController
     authorize @family
     if @family.save
       current_user.update!(family: @family)
-      redirect_to root_path
+      redirect_to main_page_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class FamiliesController < ApplicationController
     @family = Family.find(params[:family][:name])
     authorize @family
     if current_user.update!(family: @family)
-      redirect_to root_path
+      redirect_to main_page_path
     else
       render :new, status: :unprocessable_entity
     end
