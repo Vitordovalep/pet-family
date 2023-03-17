@@ -17,7 +17,7 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: .8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -25,13 +25,13 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #8BC34A;
+  background: #7dcb23;
   transition: 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #8BC34A;
+  background: #7dcb23;
   color: white;
   box-shadow: 2px 2px 2px rgba(228, 227, 227, 0.361);
-  border: 5px solid #8BC34A;
+  border: 5px solid #7dcb23;
 }
