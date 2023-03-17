@@ -4,6 +4,7 @@
   color: white;
   padding: 0px 24px 0 24px;
 
+
   .nv-footer {
     display: flex;
     flex-direction: row;
@@ -26,4 +27,5 @@
   overflow: hidden;
   bottom: 0;
   width: 100%;
+  z-index: 10;
 }

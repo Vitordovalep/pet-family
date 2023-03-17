@@ -68,6 +68,8 @@
   width: 95%;
   margin: 8px auto;
   padding: 12px 16px ;
+  z-index: 1;
+  position: relative;
 
   .task-card-icon {
     display: flex;
@@ -101,6 +103,16 @@
   p{
     margin: 0;
   }
+}
+
+.collapsing {
+  background: #f4f4f4;
+  border-style: none;
+}
+
+.card-body {
+  background: #f4f4f4;
+  border-style: none;
 }
 
 .lp-card {
