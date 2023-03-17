@@ -2,6 +2,8 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(to top, transparent 5%, rgb(255, 255, 255) 20%);
 }
 
 .banner h1 {

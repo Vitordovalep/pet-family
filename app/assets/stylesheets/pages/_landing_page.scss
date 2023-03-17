@@ -1,5 +1,15 @@
 .lp-imagem {
-  width: 150px;
-  height: 150px;
+  height: 60%;
+  width: 100%;
   object-fit: contain;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.lp-card-marketing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }

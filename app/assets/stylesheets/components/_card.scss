@@ -107,23 +107,22 @@
 .lp-card {
   background-color: #ffffff;
   padding: 16px 16px 16px 16px;
-  display: flex;
-  font-weight: bold;
-  justify-content: space-between;
+  justify-content: center;
   padding: 16px 16px;
   color: #888888;
   align-items: center;
-  text-decoration: none;
   border: 2px solid #D9D9D9;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(217, 217, 217, 0.6);
-  height: 100px;
-  width: 90%;
+  height: 300px;
+  width: 30%;
   margin: auto;
   margin-bottom: 16px;
 
-  h2 {
-    margin: 0;
+  h4 {
+    margin-bottom: 8px;
+    font-weight: bold;
+    justify-content: center;
   }
 
   p {
