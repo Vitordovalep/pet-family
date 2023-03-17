@@ -1,23 +1,37 @@
 <div class="container-pages">
   <h1>Agendamento:</h1>
-<div class="form-edit">
+<div class="card-centered">
   <h2><%= @task.category %></h2>
   <p><%= @task.description %></p>
 
-
   <% if @task.schedule.present? %>
-    <p>Pet: <%= @task.schedule.pet.name %></p>
-    <p>Reponsavel: <%= @task.schedule.user.name %></p>
-    <p>Data de início: <%= @task.schedule.start_time.strftime('%d/%m/%Y') %></p>
-    <p>Data de término: <%= @task.schedule.end_time.strftime('%d/%m/%Y') %></p>
-    <p>Horário: <%= @task.schedule.due_time.strftime('%H:%M') %></p>
+    <div class="d-flex" style="justify-content: space-between;">
+      <p><strong>Pet:</strong> <%= @task.schedule.pet.name %></p>
+      <%= render "shared/avatar_xs_pet", pet: @task.schedule.pet %>
+    </div>
+    <div class="d-flex" style="justify-content: space-between;">
+      <p><strong>Reponsável:</strong> <%= @task.schedule.user.name %></p>
+      <%= render "shared/avatar_xs_user", user: @task.schedule.user %>
+    </div>
+    <p><strong>Data de início:</strong> <%= @task.schedule.start_time.strftime('%d/%m/%Y') %></p>
+    <p><strong>Data de término:</strong> <%= @task.schedule.end_time.strftime('%d/%m/%Y') %></p>
+    <p><strong>Horário:</strong> <%= @task.schedule.due_time.strftime('%H:%M') %></p>
   <% else %>
     <p>Nenhuma atividade registrada.</p>
   <% end %>
 
-    <%=link_to "Voltar", root_path, class: "btn btn-secondary btn-lg" %>
-    <%=link_to "Editar tarefa", edit_task_path(@task), class: "btn btn-primary btn-lg"  %>
-    <%=link_to "Deletar tarefa", task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-lg" %>
+    <div class="btn-group">
+      <%=link_to root_path do %>
+        <i class="fa-solid fa-arrow-left" style="color: #6D6D6D;"></i>
+      <% end %>
+      <%=link_to edit_task_path(@task) do %>
+        <i class="fa-solid fa-pen" style="color: #6D6D6D;"></i>
+      <% end %>
+      <%=link_to task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' } do %>
+        <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+      <% end %>
+    </div>
+
   </div>
 
 </div>

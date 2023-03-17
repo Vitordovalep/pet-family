@@ -16,7 +16,6 @@
     color: #8BC34A;
     border: 8px solid #8BC34A;
   }
-
 }
 
 .add-pet-btn {
@@ -30,4 +29,11 @@
   width: 90%;
   text-align: center;
   align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  margin-top: 32px;
 }
