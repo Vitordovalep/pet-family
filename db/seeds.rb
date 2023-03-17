@@ -5,6 +5,8 @@ Task.destroy_all
 Pet.destroy_all
 Family.destroy_all
 User.destroy_all
+Species.destroy_all
+Breed.destroy_all
 
 puts "Creating families..."
 
@@ -33,19 +35,19 @@ bruno.photo.attach(io: URI.open(bruno_url), filename: "bruno.jpg", content_type:
 puts "----------------------------------------------"
 puts "Creating species..."
 
-bird = Species.create!(name: "Bird")
-cat = Species.create!(name: "Cat")
-dog = Species.create!(name: "Dog")
-horse = Species.create!(name: "Horse")
-reptile = Species.create!(name: "Reptile")
+dog = Species.create!(name: "Cachorro")
+horse = Species.create!(name: "Cavalo")
+cat = Species.create!(name: "Gato")
+bird = Species.create!(name: "Pássaro")
+reptile = Species.create!(name: "Réptil")
 
-puts "Creating breeds"
+puts "Creating breeds.."
 
-bird_breeds = ["Parrot", "Canary", "Cockatiel"]
-cat_breeds = ["Siamese", "Persian", "Sphynx"]
-dog_breeds = ["Golden Retriever", "Labrador Retriever", "Poodle"]
-horse_breeds = ["Quarter Horse", "Thoroughbred", "Arabian"]
-reptile_breeds = ["Ball Python", "Leopard Gecko", "Bearded Dragon"]
+dog_breeds = ["Border Collie", "Bulldog", "Dachshund", "Golden Retriever", "Labrador", "Lhasa Apso", "Maltês", "Pinscher", "Poodle", "Pug", "Rottweiler", "Shih Tzu", "Spitz Alemão", "Vira lata(SRD)", "Yorkshire", "Outros"]
+horse_breeds = ["Andaluz", "Árabe", "Campeiro", "Campolina", "Crioulo", "Manga-larga", "Mangalarga Marchador", "Pampa", "Quarto de Milha"]
+cat_breeds = ["American Shorthair", "Angorá", "Ashera", "Exótico", "Himalaia", "Maine Coon", "Persa", "Ragdoll", "Siamês", "Sphynx", "Vira Lata (SDR)"]
+bird_breeds = ["Bem-te-vi", "Bicudo", "Cacatua", "Calopsitas", "Canário da Terra", "Coleira", "Curió", "Ganso", "Papagaio", "Pardal", "Pavão", "Periquito", "Sabiá", "Trinca Ferro"]
+reptile_breeds = ["Cágado", "Dragão-barbudo", "Iguana", "Jabuti", "Jiboia", "Lagartixa", "Lagarto Teiú", "Suaçuboia", "Tartaruga"]
 
 bird_breeds.each do |breed|
   Breed.create!(name: breed, species_id: bird.id)
@@ -85,4 +87,3 @@ reptile_pet = Pet.create!(name: "Smoking Snake", birthday: Faker::Date.birthday(
 reptile_pet.photo.attach(io: URI.open("https://res.cloudinary.com/doohtp0fi/image/upload/v1678395214/smoking_snake_txdfoy.jpg"), filename: "gos.jpg", content_type: "image/jpg")
 
 puts "#{Family.count} families, #{User.count} users and #{Pet.count} pets created!"
- 

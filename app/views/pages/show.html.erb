@@ -2,9 +2,9 @@
     <h1>Lista de Tarefas</h1>
       <div class="header-home">
           <%# Pet filters %>
-          <%= link_to "Todos" , root_path, data: {action: "click->filter-pets#filter"} %>
+          <%= link_to "Todos" , main_page_path, data: {action: "click->filter-pets#filter"} %>
           <% @pets.each do |pet| %>
-            <%= link_to root_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
+            <%= link_to main_page_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
               <%= render "shared/avatar_small_pet", pet: pet %>
             <% end %>
           <% end %>
