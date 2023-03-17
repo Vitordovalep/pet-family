@@ -1,23 +1,13 @@
 <div class="container-pages">
-  <h1>Crie uma nova tarefa para seu Pet</h1>
+  <h1>Editar tarefa</h1>
+  <div class="class row">
+    <div class="col-xs-12 col-sm-offset-4">
+      <div class="form-edit">
 
-  <%= simple_form_for(@task) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :category, label: "Categoria", collection: Task::TASK_CATEGORIES %>
-      <%= f.input :description, label: "Descrição", input_html: { :maxlength => 60 }%>
-      <%= f.fields_for :schedule do |s| %>
-        <%= s.input :start_time, label: "Inicio", html5: true %>
-        <%= s.input :end_time, label: "Fim", html5: true %>
-        <%= s.input :due_time, label: "Horário" %>
-        <%= s.input :user_id, label: "Usuário", collection: current_user.family.users %>
-        <%= s.input :pet_id, label: "Pet", collection: current_user.family.pets %>
-      <% end %>
+        <%= render "form_task",  task: @task %>
+        <%= link_to "Voltar", root_path, class: "btn btn-secondary" %>
+
+      </div>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </div>
-
-<% end %>
-
-
+  </div>
 </div>

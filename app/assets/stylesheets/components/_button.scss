@@ -17,7 +17,6 @@
     color: #8BC34A;
     border: 8px solid #8BC34A;
   }
-
 }
 
 .add-pet-btn {
@@ -25,6 +24,19 @@
   padding: auto;
   border-radius: 50%;
   text-decoration: none;
+}
+
+.custom-btn.btn-secondary {
+  width: 90%;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  margin-top: 32px;
 }
 
 .fa-trash {
