@@ -4,27 +4,31 @@
       <% events_schedule, events_schedule_exceptions = events.partition { |e| e.is_a?(Schedule) } %>
         <% events_schedule.sort_by(&:due_time).each do |event|%>
         <%# Tasks do dia %>
-          <%= link_to event.task do %>
-              <div class="task-card">
-                <div class="task-card-icon">
-                  <%= render "shared/icon_tasks", category: event.task.category %>
-                </div>
-                <div class="task-card-description">
-                  <p><strong><%= event.task.category %></strong></p>
-                  <p><%= event.task.description.truncate(35) %>.</p>
-                  <%= render "shared/avatar_xs_pet", pet: event.pet %>
-                </div>
-                <div class="task-card-hour">
-                  <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
-                  <div>
-                    <%= render "shared/avatar_small_user", user: event.user %>
+          <div>
+            <div data-action="click->filter-pets#displayOptions">
+                <div class="task-card">
+                  <div class="task-card-icon">
+                    <%= render "shared/icon_tasks", category: event.task.category %>
+                  </div>
+                  <div class="task-card-description">
+                    <p><strong><%= event.task.category %></strong></p>
+                    <p><%= event.task.description.truncate(35) %>.</p>
+                    <%= render "shared/avatar_xs_pet", pet: event.pet %>
+                  </div>
+                  <div class="task-card-hour">
+                    <p><strong><%= event.due_time.strftime('%H:%M') %></strong></p>
+                    <div>
+                      <%= render "shared/avatar_small_user", user: event.user %>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <div>
-              <%=link_to "Marcar como feita", task_schedule_exceptions_path(event.task, exception_date: event.start_time), data: {turbo_method: :post}, class: "btn btn-success btn-lg" %>
             </div>
-          <% end %>
+              <div id="options-card" class="d-none options-card" data-filter-pets-target="optionCard">
+                <%= link_to "Marcar como feita", task_schedule_exceptions_path(event.task, exception_date: event.start_time), data: {turbo_method: :post}, class: "btn btn-success btn-lg" %>
+                <%=link_to "Editar tarefa", edit_task_path(event.task), class: "btn btn-primary btn-lg"  %>
+                <%=link_to "Deletar tarefa", task_path(event.task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-lg" %>
+              </div>
+          </div>
         <% end %>
 
         <% events_schedule_exceptions.sort_by(&:start_time).each do |event|%>
@@ -41,7 +45,7 @@
                 </div>
 
                 <div class="done">
-                  <%= "Done" %>
+                  <%= "Tarefa realizada" %>
                 </div>
 
                 <div class="task-card-hour">
@@ -51,9 +55,6 @@
                   </div>
                 </div>
               </div>
-            <div>
-              <%=link_to "Marcar como feita", task_schedule_exceptions_path(event.schedule.task, exception_date: event.schedule.start_time), data: {turbo_method: :post}, class: "btn btn-success btn-lg" %>
-            </div>
           <% end %>
         <% end %>
     </div>

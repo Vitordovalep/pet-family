@@ -64,11 +64,14 @@
   display: flex;
   justify-content: space-between;
   border: 2px solid #D9D9D9;
+  background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(217, 217, 217, 0.6);
   width: 95%;
   margin: 8px auto;
   padding: 12px 16px ;
+  z-index: 1;
+  position: relative;
 
   .task-card-icon {
     display: flex;
@@ -101,5 +104,26 @@
 
   p{
     margin: 0;
+  }
+}
+
+#options-card {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  width: 95%;
+  margin: 8px auto;
+  padding: 12px 16px;
+  animation: drop 2s ease;
+
+  @keyframes drop {
+    from {
+      transform: translateY(-75%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
