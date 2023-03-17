@@ -1,24 +1,22 @@
 <div class="navbar-pet-family" >
-  <% if user_signed_in? %>
-      <ul class="navbar-nav me-auto nv-footer justify-content-between">
-          <li class="navbar-item">
-            <%= link_to main_page_path, class:"nav-link" do %>
-              <i class="fa-solid fa-paw"></i>
-              <p>Tarefas</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <%= link_to documents_path, class:"nav-link" do %>
-              <i class="fa-solid fa-file"></i>
-              <p>Documentos</p>
-            <% end %>
-          </li>
-          <li class="navbar-item">
-            <%= link_to family_path(current_user.family), class:"nav-link" do %>
-              <i class="fa-solid fa-user"></i>
-              <p>Perfil</p>
-            <% end %>
-          </li>
-      </ul>
-  <% end %>
+  <ul class="navbar-nav me-auto nv-footer justify-content-between">
+      <li class="navbar-item">
+        <%= link_to main_page_path, class:"nav-link" do %>
+          <i class="fa-solid fa-paw"></i>
+          <p>Tarefas</p>
+        <% end %>
+      </li>
+      <li class="navbar-item">
+        <%= link_to documents_path, class:"nav-link" do %>
+          <i class="fa-solid fa-file"></i>
+          <p>Documentos</p>
+        <% end %>
+      </li>
+      <li class="navbar-item">
+        <%= link_to family_path(current_user.family), class:"nav-link" do %>
+          <i class="fa-solid fa-user"></i>
+          <p>Perfil</p>
+        <% end %>
+      </li>
+  </ul>
 </div>

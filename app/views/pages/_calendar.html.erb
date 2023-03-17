@@ -50,6 +50,7 @@
         <% events_schedule_exceptions.sort_by(&:start_time).each do |event|%>
         <%# Tasks do dia %>
           <%= link_to event.schedule.task do %>
+            <div class="task-done">
               <div class="task-card">
                 <div class="task-card-icon">
                   <%= render "shared/icon_tasks", category: event.schedule.task.category %>
@@ -71,6 +72,7 @@
                   </div>
                 </div>
               </div>
+            </div>
           <% end %>
         <% end %>
     </div>

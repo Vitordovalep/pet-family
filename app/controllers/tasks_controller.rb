@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   def destroy
     authorize @task
     @task.destroy
-    redirect_to main_page_path
+    redirect_to request.referrer, notice: "Tarefa destruida com sucesso"
   end
 
   private

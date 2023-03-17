@@ -22,7 +22,7 @@
 
 
     <div id="navbar-botton">
-      <%= render "shared/navbar" %>
+      <%= render "shared/navbar" if user_signed_in? && current_user.family %>
     </div>
   </body>
 </html>
