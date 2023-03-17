@@ -8,19 +8,19 @@
   align-items: center;
   text-align: left;
   .btn {
-    width: 90%;
-    margin-top: 12px;
+    width: 100%;
+    margin-top: 8px;
     border-radius: 4px;
     color: #fff;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
   }
 }
 
 .form-inputs {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 0;
 }
 
 .form-actions {
@@ -34,4 +34,9 @@
     font-weight: bold;
     text-align: center;
   }
+}
+
+.form-select {
+  border-radius: 4px;
+  background-position: right 0.75rem center
 }

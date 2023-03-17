@@ -31,3 +31,15 @@ h2 {
 p {
   color: #808080;
 }
+
+.label-on-right {
+  display: inline-block;
+  margin-left: 20px; /* adjust the margin to add space between the label and input field */
+}
+
+.input-with-icon input {
+  padding-left: 20px; /* adjust the padding to make room for the icon */
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"%3E%3Cpath fill="%23ccc" d="M2.7 2.7L0 5.4V6h2.7l2.7-2.7-1-1zm2.6 0l1 1L8 3.3V2.7l-2.7 2.7-1-1z"%3E%3C/path%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
