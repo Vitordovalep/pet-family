@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter-pets"
 export default class extends Controller {
-  static targets = ["calendar"]
+  static targets = ["card"]
 
   connect() {
     console.log("coneccted on dropdown");
@@ -14,7 +14,7 @@ export default class extends Controller {
     fetch(url, {headers: {"Accept": "text/plain"}})
     .then(response=>response.text())
     .then((data) => {
-      this.calendarTarget.outerHTML = data
+      this.cardTarget.outerHTML = data
     })
   }
 }

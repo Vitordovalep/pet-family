@@ -2,7 +2,7 @@ class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      user.admin? ? scope.all : scope.joins(schedule: { user: :family }).where(families: { id: user.family})
+      user.admin? ? scope.all : scope.joins(schedule: { user: :family }).where(families: { id: user.family })
     end
   end
 
