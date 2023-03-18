@@ -7,7 +7,7 @@
   <% if @document.files.attached? %>
     <% @document.files.each do |file| %>
     <%= link_to file.url, target: :_blank do %>
-      <%= cl_image_tag file.key %>
+      <%= cl_image_tag file.key, crop: "fill", height: 300, width: 400, fetch_format: "auto", quality: "auto" %>
     <% end %>
 
       <%= link_to file.url, target: :_blank do %>
