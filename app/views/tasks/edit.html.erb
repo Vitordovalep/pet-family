@@ -4,7 +4,30 @@
     <div class="col-xs-12 col-sm-offset-4">
       <div class="form-edit">
 
-        <%= render "form_task",  task: @task %>
+        <%= simple_form_for(task) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :category, label: "Categoria", collection: Task::TASK_CATEGORIES, class: "form-control" %>
+              <%= f.input :description, label: "Descrição", input_html: { :maxlength => 60 } %>
+              <%= f.fields_for :schedule do |s| %>
+                <div class="row">
+                  <div class="col-6">
+                    <%= s.input :start_time, label: "Inicio", html5: true %>
+                  </div>
+                  <div class="col-6">
+                    <%= s.input :end_time, label: "Fim", html5: true %>
+                  </div>
+                </div>
+                <%= s.input :due_time, label: "Horário" %>
+                <%= s.input :user_id, label: "Usuário", collection: current_user.family.users %>
+                <%= s.input :pet_id, label: "Pet", collection: current_user.family.pets %>
+              <% end %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, value: "Concluir", class: "btn btn-primary" %>
+            </div>
+
+        <% end %>
+
         <%= link_to "Voltar", main_page_path, class: "btn btn-secondary" %>
 
       </div>
