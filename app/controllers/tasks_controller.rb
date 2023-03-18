@@ -24,7 +24,6 @@ class TasksController < ApplicationController
     authorize @task
     if @task.save
       schedule = @task.schedule
-      raise
       schedule.end_time = schedule.start_time + 1.years if schedule.end_time.nil?
       if params[:task][:schedule_attributes][:recurring_rule] != "null"
         schedule.recurring_rule = params[:task][:schedule_attributes][:recurring_rule]
