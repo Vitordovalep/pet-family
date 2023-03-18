@@ -1,16 +1,37 @@
 <div class="container-pages">
 
-  <h1><%= @document.name %></h1>
+  <h1><%= @document.name.capitalize %></h1>
 
-  <p><%= @document.description %></p>
+  <p><%= @document.description.capitalize %></p>
 
   <% if @document.files.attached? %>
-    <% @document.files.each do |file| %>
-      <%= cl_image_tag file.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+    <div class= "cards">
+      <% @document.files.each do |file| %>
+
+        <div class= "task-card flex-column ">
+          <%= link_to file.url, target: :_blank do %>
+            <%= cl_image_tag file.key, crop: "fill", height: 150, width: 300 , gravity: "north", fetch_format: "auto", quality: "auto", background: "black" %>
+          <% end %>
+
+
+          <%= link_to cloudinary_url(file.key,:flags=>"attachment") do %>
+            <p class= "mt-2 mb-0">Download <i class="fa-solid fa-file-arrow-down"></i></p>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
   <% end %>
 
-  <%= link_to "Editar", edit_document_path(@document)  %>
-  <%=link_to "Deletar documento", document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-lg" %>
+  <div class="card card-body">
+    <div id="options-card ">
+      <%=link_to document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-lg" do %>
+        <i class="fa-solid fa-trash fa-2x"></i>
+      <% end %>
+      <%=link_to edit_document_path(@document), class: "btn btn-lg" do %>
+        <i class="fa-solid fa-pen-to-square fa-2x"></i>
+      <% end %>
+    </div>
+  </div>
 
 </div>

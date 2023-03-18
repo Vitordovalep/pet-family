@@ -7,7 +7,6 @@ class DocumentsController < ApplicationController
     if params[:query].present?
       @documents = policy_scope(Document).where(pet_id: params[:query])
     else
-      # raise
       @documents = policy_scope(Document)
     end
 
