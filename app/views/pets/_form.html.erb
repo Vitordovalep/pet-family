@@ -5,7 +5,7 @@
         <%= f.input :species, label: 'Espécie:', collection: Species.all, placeholder: "Pet specie", input_html: { data: { action: "change->list-breeds#listContent", list_breeds_target: "species" } } %>
         <%= f.input :breed_id, label: 'Raça:',collection: [], placeholder: "Pet breed", input_html: { data: { list_breeds_target: "breeds" } } %>
         <%= f.input :birthday, label: 'Data de nascimento:',html5: true %>
-        <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photo, as: :file %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, value: "Concluir", class: "btn btn-primary" %>
