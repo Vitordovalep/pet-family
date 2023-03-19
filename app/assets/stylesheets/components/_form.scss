@@ -6,35 +6,36 @@
   margin: 4px;
   justify-content: center;
   align-items: center;
-  text-align: left;
   .btn {
-    width: 100%;
-    margin-top: 8px;
+    background: #8BC34A;
+    border-color: solid #8BC34A;
+    width: 80%;
+    margin-top: 12px;
     border-radius: 4px;
     color: #fff;
     font-weight: bold;
-    text-align: center;
-    justify-content: center;
   }
 }
 
 .form-inputs {
   width: 100%;
   margin: 0;
+  text-align: left;
 }
 
 .form-actions {
-  display: flex;
-  justify-content: center;
-  button {
-    width: 90%;
+  text-align: center;
+  .btn {
+    background: #8BC34A;
+    border-color: solid #8BC34A;
+    width: 80%;
     margin-top: 12px;
     border-radius: 4px;
     color: #fff;
     font-weight: bold;
-    text-align: center;
   }
 }
+
 
 .form-select {
   border-radius: 4px;
