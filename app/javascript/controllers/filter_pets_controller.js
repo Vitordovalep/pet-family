@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["card"]
 
   connect() {
-    console.log("coneccted on dropdown");
   }
 
   filter(event) {
@@ -17,4 +16,5 @@ export default class extends Controller {
       this.cardTarget.outerHTML = data
     })
   }
+
 }
