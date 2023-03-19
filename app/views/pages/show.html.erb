@@ -2,7 +2,12 @@
     <h1>Lista de Tarefas</h1>
       <div class="header-home">
           <%# Pet filters %>
-          <%= link_to "Todos" , main_page_path, data: {action: "click->filter-pets#filter"} %>
+          <%= link_to main_page_path, class: "all-pets", data: {action: "click->filter-pets#filter"} do %>
+            <div class="fa-stack" style="font-size: 1.5em">
+              <i class="far fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-filter-circle-xmark fa-stack-text"></i>
+            </div>
+          <% end %>
           <% @pets.each do |pet| %>
             <%= link_to main_page_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
               <%= render "shared/avatar_small_pet", pet: pet %>
@@ -10,7 +15,7 @@
           <% end %>
           <div class="add-pet-btn btn">
             <%= link_to new_family_pet_path(@family) do %>
-              <i class="fa-solid fa-circle-plus"></i>
+              <i class="fa-solid fa-circle-plus fa-3x"></i>
             <% end %>
           </div>
       </div>
@@ -21,3 +26,15 @@
 <%= link_to new_task_path do %>
   <i id="sticky-btn", class="fa-solid fa-circle-plus fa-3x"></i>
 <% end %>
+
+<script>
+  document.querySelectorAll('.avatar-small, .all-pets').forEach((avatar) => {
+    avatar.addEventListener('click', (event) => {
+      document.querySelectorAll('.avatar-small').forEach((otherAvatar) => {
+        if (otherAvatar !== avatar) {
+          otherAvatar.classList.remove('clicked');
+        }
+      });
+    });
+  });
+</script>

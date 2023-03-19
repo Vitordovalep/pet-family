@@ -1,5 +1,5 @@
 <% if pet.photo.attached? %>
-  <%= cl_image_tag pet.photo.key,  class: "avatar-small" %>
+  <%= cl_image_tag pet.photo.key, class: "avatar-small", onclick: "this.classList.toggle('clicked')"%>
 <% else %>
-  <%= image_tag "avatar_dog.svg", class: "avatar-small" %>
+  <%= image_tag "avatar_dog.svg", class: "avatar-small", onclick: "this.classList.toggle('clicked')"%>
 <% end %>

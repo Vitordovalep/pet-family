@@ -67,3 +67,12 @@
 .fa-circle-info {
   color: #b6b6b6
 }
+
+.fa-stack-text {
+  font-size: 0.9em; /* adjust font size as needed */
+  line-height: 1.8; /* adjust line height as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

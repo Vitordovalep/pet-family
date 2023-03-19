@@ -16,10 +16,7 @@ class PagesController < ApplicationController
       @schedules = Schedule.includes(:pet, :task, :user).where(pet: @pets)
     end
 
-    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) } + ScheduleException.all.to_a
-    @events_schedule = []
-    @events_schedule_exceptions = []
-
+    @calendar_schedules = @schedules.flat_map { |e| e.calendar_events(e.start_time, e.end_time) } + ScheduleException.joins(schedule: [user: :family]).where(families: {id: @family.id}).to_a
 
     respond_to do |format|
       format.html
