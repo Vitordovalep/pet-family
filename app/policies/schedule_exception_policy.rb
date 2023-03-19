@@ -5,6 +5,9 @@ class ScheduleExceptionPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+  def show?
+    @record.schedule.user.family == user.family || user.admin?
+  end
 
   def create?
     true
