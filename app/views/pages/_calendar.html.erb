@@ -2,7 +2,6 @@
   <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
     <div class="tasks-home">
       <% events_schedule, events_schedule_exceptions = events.partition { |e| e.is_a?(Schedule) } %>
-
         <% events_schedule.sort_by(&:due_time).each_with_index do |event, index|%>
         <%# Tasks do dia %>
 
@@ -50,6 +49,7 @@
 
         <% end %>
 
+      <%# Done tasks %>
         <% events_schedule_exceptions.sort_by(&:start_time).each do |event|%>
         <%# Tasks do dia %>
           <%= link_to event.schedule.task do %>

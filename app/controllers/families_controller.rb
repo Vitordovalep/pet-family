@@ -25,7 +25,7 @@ class FamiliesController < ApplicationController
     authorize @family
     if @family.save
       current_user.update!(family: @family)
-      redirect_to new_family_pet(@family)
+      redirect_to new_family_pet_path(@family)
     else
       render :new, status: :unprocessable_entity
     end
