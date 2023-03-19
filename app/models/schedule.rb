@@ -5,7 +5,7 @@ class Schedule < ApplicationRecord
   has_many :schedule_exceptions, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  validates :start_time, :end_time, :due_time, :pet_id, :user_id, presence: true
+  validates :start_time, :due_time, :pet_id, :user_id, presence: true
 
   after_create :add_schedule_notification
 

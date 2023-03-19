@@ -23,12 +23,16 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     authorize @task
     if @task.save
-      if params[:task][:schedule_attributes][:recurring_rule] != ""
-        schedule = @task.schedule
+      schedule = @task.schedule
+      schedule.end_time = schedule.start_time + 1.years if schedule.end_time.nil?
+      if params[:task][:schedule_attributes][:recurring_rule] != "null"
         schedule.recurring_rule = params[:task][:schedule_attributes][:recurring_rule]
         schedule.save
+      else
+        schedule.recurring_rule = IceCube::Rule.daily.count(1)
+        schedule.save
       end
-      redirect_to root_path, notice: "A tarefa foi criada com sucesso!"
+      redirect_to main_page_path, notice: "A tarefa foi criada com sucesso!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +45,7 @@ class TasksController < ApplicationController
   def update
     authorize @task
     if @task.update(task_params)
-      redirect_to root_path, notice: "A tarefa foi atualizada com sucesso!"
+      redirect_to main_page_path, notice: "A tarefa foi atualizada com sucesso!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -50,7 +54,7 @@ class TasksController < ApplicationController
   def destroy
     authorize @task
     @task.destroy
-    redirect_to root_path
+    redirect_to request.referrer, notice: "Tarefa destruida com sucesso"
   end
 
   private

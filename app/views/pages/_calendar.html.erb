@@ -2,9 +2,13 @@
   <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
     <div class="tasks-home">
       <% events_schedule, events_schedule_exceptions = events.partition { |e| e.is_a?(Schedule) } %>
-        <% events_schedule.sort_by(&:due_time).each do |event|%>
+
+        <% events_schedule.sort_by(&:due_time).each_with_index do |event, index|%>
         <%# Tasks do dia %>
-          <%= link_to event.task do %>
+
+        <%# Toggle bootstrap %>
+          <a data-bs-toggle="collapse" href="#collapse<%= index %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <div>
               <div class="task-card">
                 <div class="task-card-icon">
                   <%= render "shared/icon_tasks", category: event.task.category %>
@@ -21,15 +25,32 @@
                   </div>
                 </div>
               </div>
-            <div>
-              <%=link_to "Marcar como feita", task_schedule_exceptions_path(event.task, exception_date: event.start_time), data: {turbo_method: :post}, class: "btn btn-success btn-lg" %>
+          </a>
+
+          <%# Card options div %>
+            <div class="collapse" id="collapse<%= index.to_s %>">
+              <div class="card card-body">
+                <div id="options-card">
+                  <%=link_to task_path(event.task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-lg" do %>
+                    <i class="fa-solid fa-trash fa-2x"></i>
+                  <% end %>
+                  <%=link_to edit_task_path(event.task), class: "btn btn-lg" do %>
+                    <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                  <% end %>
+                  <%= link_to task_schedule_exceptions_path(event.task, exception_date: event.start_time), data: {turbo_method: :post}, class: "btn btn-lg" do %>
+                    <i class="fa-solid fa-check fa-2x"></i>
+                  <% end %>
+                </div>
+              </div>
             </div>
-          <% end %>
+          </div>
+
         <% end %>
 
         <% events_schedule_exceptions.sort_by(&:start_time).each do |event|%>
         <%# Tasks do dia %>
           <%= link_to event.schedule.task do %>
+            <div class="task-done">
               <div class="task-card">
                 <div class="task-card-icon">
                   <%= render "shared/icon_tasks", category: event.schedule.task.category %>
@@ -41,7 +62,7 @@
                 </div>
 
                 <div class="done">
-                  <%= "Done" %>
+                  <%= "Tarefa realizada" %>
                 </div>
 
                 <div class="task-card-hour">
@@ -51,8 +72,6 @@
                   </div>
                 </div>
               </div>
-            <div>
-              <%=link_to "Marcar como feita", task_schedule_exceptions_path(event.schedule.task, exception_date: event.schedule.start_time), data: {turbo_method: :post}, class: "btn btn-success btn-lg" %>
             </div>
           <% end %>
         <% end %>
