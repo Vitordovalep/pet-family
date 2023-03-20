@@ -16,6 +16,7 @@
         <%= s.input :pet_id, label: "Pet", collection: current_user.family.pets %>
         <%= s.label "Frequência" %>
         <%= s.select_recurring :recurring_rule, nil, allow_blank: true %>
+
       <% end %>
     </div>
     <div class="form-actions">

@@ -1,5 +1,4 @@
 class ScheduleExceptionsController < ApplicationController
-
   def create
     task = Task.find(params[:task_id])
     @schedule = task.schedule
