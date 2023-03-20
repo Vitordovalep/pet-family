@@ -44,7 +44,7 @@ class FamiliesController < ApplicationController
   private
 
   def family_params
-    params.require(:family).permit(:name)
+    params.require(:family).permit(:name, :photo)
   end
 
   def set_family

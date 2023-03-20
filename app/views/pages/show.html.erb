@@ -13,11 +13,11 @@
               <%= render "shared/avatar_small_pet", pet: pet %>
             <% end %>
           <% end %>
-          <div class="add-pet-btn btn">
-            <%= link_to new_family_pet_path(@family) do %>
+
+            <%= link_to new_family_pet_path(@family), class:"add-pet-btn btn" do %>
               <i class="fa-solid fa-circle-plus fa-3x"></i>
             <% end %>
-          </div>
+
       </div>
   <%# Calendario %>
   <%= render "calendar", calendar_schedules: @calendar_schedules %>
