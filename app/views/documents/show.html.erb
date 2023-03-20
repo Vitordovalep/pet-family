@@ -24,7 +24,10 @@
   <% end %>
 
   <div class="card card-body">
-    <div id="options-card ">
+    <div id="options-card">
+      <%= link_to :back, class: "btn btn-lg" do %>
+        <i class="fa-solid fa-arrow-left fa-2x" style="color: #6D6D6D;"></i>
+      <% end %>
       <%=link_to document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Esta ação apaga a tarefa e suas repetições. Quer continuar?' }, class: "btn btn-lg" do %>
         <i class="fa-solid fa-trash fa-2x"></i>
       <% end %>
