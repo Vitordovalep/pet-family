@@ -3,6 +3,7 @@ class Schedule < ApplicationRecord
   belongs_to :task
   belongs_to :user
   has_many :schedule_exceptions, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   validates :start_time, :due_time, :pet_id, :user_id, presence: true
 
@@ -44,4 +45,5 @@ class Schedule < ApplicationRecord
       end
     end
   end
+
 end

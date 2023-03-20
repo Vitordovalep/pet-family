@@ -157,6 +157,24 @@
   }
 }
 
+.card-notifications {
+  position: fixed;
+  overflow: hidden;
+  top: 72px;
+  right: 12px;
+  width: 240px;
+  z-index: 105;
+  text-align: left;
+
+  li {color: #808080;}
+  a {color: #808080;}
+  i {margin-left: 8px;}
+
+  .read{
+    color: rgba(128, 128, 128, 0.5);
+  }
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

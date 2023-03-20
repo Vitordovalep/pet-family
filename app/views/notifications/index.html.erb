@@ -1,0 +1,27 @@
+  <%= turbo_frame_tag "notifications_index" do %>
+
+    <ul class="list-group notification-scroll">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Notificações</strong>
+        <%= link_to '<i class="fa-regular fa-circle-xmark"></i>'.html_safe, url_for(:back), remote: true, data: { turbo_frame: "_top" } %>
+      </li>
+      <% if @notifications.empty? %>
+        <li class="list-group-item">
+          Você não possui notificações
+        </li>
+      <% else %>
+        <li class="list-group-item">
+          <%= link_to "Marcar todos como lidos", mark_all_as_read_notifications_path, method: :put, remote: true %>
+        </li>
+        <% @notifications.each do |notification|%>
+          <li class="list-group-item <%= 'read' if notification.read_at %> d-flex justify-content-between align-items-center">
+            <%= notification.message %>
+            <%# <%=  notification.read_at ? "Lido" : "Não lido" %>
+            <%=link_to notification_path(notification), data: { turbo_method: :delete} do %>
+              <i class="fa-regular fa-trash-can <%= 'read' if notification.read_at %>"></i>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>

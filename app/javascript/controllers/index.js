@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import ListBreedsController from "./list_breeds_controller"
 application.register("list-breeds", ListBreedsController)
 
+import NotificationController from "./notification_controller"
+application.register("notification", NotificationController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)

@@ -15,11 +15,13 @@
 
   <body>
     <%= render "shared/flashes" %>
+      <%= render "shared/notifications" if show_notifications?%>
 
       <%= yield %>
 
-
-
+      <div class= "card-notifications">
+        <%= turbo_frame_tag "notifications_index" %>
+      </div>
 
     <div id="navbar-botton">
       <%= render "shared/navbar" unless hide_navbar? %>

@@ -1,0 +1,8 @@
+<div id="notification-position">
+  <%= link_to notifications_path, data: { turbo_frame: "notifications_index" } do %>
+    <i class="fa-solid fa-bell" id= "notification-symbol"></i>
+    <% if current_user.notifications.unread.any? %>
+      <%= content_tag(:span, current_user.family.notifications.unread.count, id: "notification-counter", class: "badge") %>
+    <% end %>
+  <% end %>
+</div>
