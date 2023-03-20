@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "pages/show", to: "pages#show", as: :main_page
 
+  authenticated :user do
+    get "pages/show", to: 'pages#show', as: :user_root
+  end
+
   authenticate :user, ->(user) { user.admin? } do
     mount Blazer::Engine, at: "blazer"
   end
@@ -28,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   resources :documents
-  resources :notifications do
+  resources :notifications, only: %i[index destroy] do
     get 'mark_all_as_read', on: :collection
   end
 

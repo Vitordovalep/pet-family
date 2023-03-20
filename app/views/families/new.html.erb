@@ -4,32 +4,35 @@
     <%= link_to "Ir para a área de administrador", rails_admin_path  %>
     <%= link_to "Ir para a área de dados (Blazer)", "/blazer"  %>
     <%= link_to "Sair do app", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-secondary btn-lg w-100" %>
-
   <% end %>
 
   <h1>Criar família ou entrar em existente</h1>
-  <h2>Selecionar família</h2>
-  <%= simple_form_for @family, url: families_join_path do |f| %>
-    <div class="form-inputs">
-      <%= f.input :name, collection: @families, input_html: {
-        data: {controller: "tom-select"}
-        } %>
-      <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Entre em uma família", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-------------------------
-  <h2>Criar nova familia</h2>
-  <%= simple_form_for @family do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name, placeholder: "Nome da família"%>
-    <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-<% end %>
 
+    <div class="add-family">
+      <h2>Criar nova familia</h2>
+      <%= simple_form_for @family do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, label: "Nome", placeholder: "Nome da família"%>
+          <%= f.input :photo, label: "Foto", as: :file %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Criar família", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="join-family">
+      <h2>Selecionar família</h2>
+      <%= simple_form_for @family, url: families_join_path do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, label: "Nome", collection: @families, input_html: {
+            data: {controller: "tom-select"}
+            } %>
+          <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Encontre sua família", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
 </div>
