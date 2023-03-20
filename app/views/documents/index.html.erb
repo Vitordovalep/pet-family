@@ -3,8 +3,13 @@
   <h1>Documentos</h1>
 
   <%# Pet filters %>
-  <div class="mb-4">
-    <%= link_to "Todos" , documents_path, data: {action: "click->filter-pets#filter"} %>
+  <div class="header-home">
+      <%= link_to documents_path, class: "all-pets", data: {action: "click->filter-pets#filter"} do %>
+            <div class="fa-stack" style="font-size: 1.5em">
+              <i class="far fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-filter-circle-xmark fa-stack-text"></i>
+            </div>
+      <% end %>
       <% @pets.each do |pet| %>
         <%= link_to documents_path(query: pet.id), data: {action: "click->filter-pets#filter"} do %>
           <%= render "shared/avatar_small_pet", pet: pet %>
