@@ -42,6 +42,7 @@ class DocumentsController < ApplicationController
   def update
     authorize @document
     if @document.update(document_params)
+      add_update_document_notification(@document)
       redirect_to document_path(@document), notice: "O seu documento foi atualizado com sucesso!"
     else
       render :edit, status: :unprocessable_entity
@@ -62,5 +63,9 @@ class DocumentsController < ApplicationController
 
   def set_document
     @document = Document.find(params[:id])
+  end
+
+  def add_update_document_notification(document)
+    Notification.create(document: document, message: "O documento: '#{document.name}' de #{document.pet.name} foi atualizado", family: document.pet.family)
   end
 end

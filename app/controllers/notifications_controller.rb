@@ -5,12 +5,12 @@ class NotificationsController < ApplicationController
     @notifications = policy_scope(Notification).order(created_at: :desc)
   end
 
-  def create
-    @notification = Notification.last
-    authorize @notification
-    @user = current_user
-    NotificationsChannel.broadcast_to(@user.id, @notification)
-  end
+  # def create
+  #   @notification = Notification.last
+  #   authorize @notification
+  #   @user = current_user
+  #   NotificationsChannel.broadcast_to(@user.id, @notification)
+  # end
 
   def destroy
     authorize @notification

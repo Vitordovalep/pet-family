@@ -7,9 +7,6 @@ class Schedule < ApplicationRecord
 
   validates :start_time, :due_time, :pet_id, :user_id, presence: true
 
-  after_create :add_new_schedule_notification
-  after_update :add_update_schedule_notification
-
   serialize :recurring_rule, Hash
   def recurring_rule=(value)
     if RecurringSelect.is_valid_rule?(value)
@@ -49,17 +46,4 @@ class Schedule < ApplicationRecord
     end
   end
 
-  private
-
-  def add_new_schedule_notification
-    Notification.create(schedule: self, message: "Você é responsável por uma nova tarefa: '#{task.category}' para o seu pet #{task.schedule.pet} ", user: user, family: user.family)
-
-    # if start_time == Date.today && due_time == Time.now + 1.hour
-    #   Notification.create(schedule: self, message: "Você tem uma tarefa em 1 hora: #{task.category}", user: user, family: user.family)
-    # end
-  end
-
-  def add_update_schedule_notification
-    Notification.create(schedule: self, message: "A sua tarefa: '#{task.category}' para o seu pet #{task.schedule.pet} foi atualizada ", user: user, family: user.family)
-  end
 end

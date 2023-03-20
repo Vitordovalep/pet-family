@@ -1,27 +1,27 @@
-<div>
-  <h1>Notifications</h1>
-
-
-  <%# <%= turbo_frame_tag "notifications_index" do %>
-    <%= link_to "Marcar todos como lidos", mark_all_as_read_notifications_path, method: :put, remote: true %>
-
-    <% if @notifications.empty? %>
-      <p>Você não possui notificações</p>
-    <% else %>
-
-      <ul>
+  <%= turbo_frame_tag "notifications_index" do %>
+    <ul class="list-group notification-scroll">
+      <li class="list-group-item">
+        <%= link_to '<i class="fa-regular fa-circle-xmark"></i>'.html_safe, url_for(:back), remote: true, data: { turbo_frame: "_top" } %>
+      </li>
+      <% if @notifications.empty? %>
+        <li class="list-group-item">
+          Você não possui notificações
+        </li>
+      <% else %>
+        <li></li>
+        <li class="list-group-item">
+          <%= link_to "Marcar todos como lidos", mark_all_as_read_notifications_path, method: :put, remote: true %>
+        </li>
         <% @notifications.each do |notification|%>
-          <li>
+          <li class="list-group-item">
             <%= notification.message %>
             <%=  notification.read_at ? "Lido" : "Não lido" %>
-            <%=link_to notification_path(notification), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' } do %>
+            <%=link_to notification_path(notification), data: { turbo_method: :delete} do %>
               <i class="fa-regular fa-trash-can"></i>
             <% end %>
           </li>
         <% end %>
-      </ul>
+      <% end %>
+    </ul>
+  <% end %>
 
-    <% end %>
-
-  <%# <% end %>
-</div>
