@@ -27,7 +27,7 @@
       <%=link_to edit_task_path(@task) do %>
         <i class="fa-solid fa-pen" style="color: #6D6D6D;"></i>
       <% end %>
-      <%=link_to task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' } do %>
+      <%=link_to task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Esta ação apaga a tarefa e suas repetições. Quer continuar??' } do %>
         <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
       <% end %>
     </div>

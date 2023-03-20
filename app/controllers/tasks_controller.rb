@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   def update
     authorize @task
     if @task.update(task_params)
-      redirect_to main_page_path, notice: "A tarefa foi atualizada com sucesso!"
+      redirect_to main_page_path, notice: "Tarefa atualizada com sucesso!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   def destroy
     authorize @task
     @task.destroy
-    redirect_to request.referrer, notice: "Tarefa destruida com sucesso"
+    redirect_to request.referrer, notice: "Tarefa excluída com sucesso"
   end
 
   private

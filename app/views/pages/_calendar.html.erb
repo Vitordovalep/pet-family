@@ -33,7 +33,7 @@
                   <%= link_to event.task, class: "btn btn-lg" do %>
                     <i class="fa-solid fa-circle-info fa-2x"></i>
                   <% end %>
-                  <%=link_to task_path(event.task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-lg" do %>
+                  <%=link_to task_path(event.task), data: { turbo_method: :delete, turbo_confirm: 'Esta ação apaga a tarefa e suas repetições. Quer continuar?' }, class: "btn btn-lg" do %>
                     <i class="fa-solid fa-trash fa-2x"></i>
                   <% end %>
                   <%=link_to edit_task_path(event.task), class: "btn btn-lg" do %>

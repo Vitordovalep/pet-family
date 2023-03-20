@@ -25,7 +25,7 @@
 
   <div class="card card-body">
     <div id="options-card ">
-      <%=link_to document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-lg" do %>
+      <%=link_to document_path(@document), data: { turbo_method: :delete, turbo_confirm: 'Esta ação apaga a tarefa e suas repetições. Quer continuar?' }, class: "btn btn-lg" do %>
         <i class="fa-solid fa-trash fa-2x"></i>
       <% end %>
       <%=link_to edit_document_path(@document), class: "btn btn-lg" do %>
