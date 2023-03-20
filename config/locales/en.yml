@@ -30,6 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  recurring_select:
+    not_recurring: "Evento único"
+    change_schedule: "Mudar frequência..."
+    set_schedule: "Definir frequência"
+    new_custom_schedule: "Nova frequência..."
+    custom_schedule: "Personalizar frequência..."
+    or: or
   simple_calendar:
     previous: "<<"
     next: ">>"
