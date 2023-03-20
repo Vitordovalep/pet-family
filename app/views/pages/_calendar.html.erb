@@ -2,7 +2,6 @@
   <%= calendar(number_of_days: 1, events: calendar_schedules) do |day, events|%>
     <div class="tasks-home">
       <% events_schedule, events_schedule_exceptions = events.partition { |e| e.is_a?(Schedule) } %>
-
         <% events_schedule.sort_by(&:due_time).each_with_index do |event, index|%>
         <%# Tasks do dia %>
 
@@ -31,6 +30,9 @@
             <div class="collapse" id="collapse<%= index.to_s %>">
               <div class="card card-body">
                 <div id="options-card">
+                  <%= link_to event.task, class: "btn btn-lg" do %>
+                    <i class="fa-solid fa-circle-info fa-2x"></i>
+                  <% end %>
                   <%=link_to task_path(event.task), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-lg" do %>
                     <i class="fa-solid fa-trash fa-2x"></i>
                   <% end %>
@@ -47,6 +49,7 @@
 
         <% end %>
 
+      <%# Done tasks %>
         <% events_schedule_exceptions.sort_by(&:start_time).each do |event|%>
         <%# Tasks do dia %>
           <%= link_to event.schedule.task do %>

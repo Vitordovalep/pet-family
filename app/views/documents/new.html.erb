@@ -1,8 +1,9 @@
 <div class="container-pages">
-  <h1>Adicione um novo documento para o seu pet</h1>
+  <h1>Adicione um novo documento do seu pet</h1>
 
-  <%= render "form_documents",  document: @document %>
-
-  <%= link_to "Voltar para a página inicial", main_page_path, class:"nav-link" %>
+  <div class="form-edit">
+    <%= render "form_documents",  document: @document %>
+    <%= link_to "Voltar", main_page_path, class:"btn btn-secondary" %>
+  </div>
 
 </div>

@@ -10,5 +10,4 @@ class ScheduleExceptionsController < ApplicationController
     end
     authorize @exception
   end
-
 end

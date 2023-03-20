@@ -24,6 +24,7 @@
   padding: auto;
   border-radius: 50%;
   text-decoration: none;
+  margin-top: 16px;
 }
 
 .custom-btn.btn-secondary {
@@ -39,6 +40,19 @@
   margin-top: 32px;
 }
 
+.btn-danger {
+  border-color: #8BC34A;
+}
+
+.btn-primary {
+  border-color: #8BC34A;
+  background-color: #8BC34A;
+}
+
+.btn-secondary {
+  border-color: #8BC34A;
+}
+
 .fa-trash {
   color: #c83131;
 }
@@ -49,4 +63,21 @@
 
 .fa-check {
   color: #8BC34A;
+}
+
+.fa-circle-info {
+  color: #b6b6b6
+}
+
+.fa-circle-plus {
+  color: #8BC34A;
+}
+
+.fa-stack-text {
+  font-size: 0.9em; /* adjust font size as needed */
+  line-height: 1.8; /* adjust line height as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
