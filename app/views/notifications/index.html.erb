@@ -1,9 +1,9 @@
   <%= turbo_frame_tag "notifications_index" do %>
 
-    <ul class="list-group notification-scroll">
+    <ul class="list-group notification-scroll" data-controller="notification">
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <strong>Notificações</strong>
-        <%= link_to '<i class="fa-regular fa-circle-xmark"></i>'.html_safe, url_for(:back), remote: true, data: { turbo_frame: "_top" } %>
+        <i class="fa-regular fa-circle-xmark" role="button" data-action="click->notification#clear"></i>
       </li>
       <% if @notifications.empty? %>
         <li class="list-group-item">
@@ -16,7 +16,6 @@
         <% @notifications.each do |notification|%>
           <li class="list-group-item <%= 'read' if notification.read_at %> d-flex justify-content-between align-items-center">
             <%= notification.message %>
-            <%# <%=  notification.read_at ? "Lido" : "Não lido" %>
             <%=link_to notification_path(notification), data: { turbo_method: :delete} do %>
               <i class="fa-regular fa-trash-can <%= 'read' if notification.read_at %>"></i>
             <% end %>
