@@ -1,8 +1,5 @@
-
-
 <div id="navbar-botton">
-  <div class="navbar-pet-family" data-controller="notification" data-notification-id-value="<%=current_user.id%>">
-    <span data-notification-target="message" ></span>
+  <div class="navbar-pet-family">
     <ul class="navbar-nav me-auto nv-footer justify-content-between">
       <li class="navbar-item">
         <%= link_to main_page_path, class:"nav-link" do %>
@@ -23,6 +20,5 @@
         <% end %>
       </li>
     </ul>
-    <%# <%= link_to "Notify", notifications_path, remote: true, data: {turbo_method: :post}  %>
   </div>
 </div>

@@ -69,6 +69,6 @@ class TasksController < ApplicationController
   end
 
   def add_update_schedule_notification(task)
-    Notification.create(schedule: task.schedule, message: "A sua tarefa: '#{task.category}' para o seu pet #{task.schedule.pet.name} foi atualizada ", user: task.schedule.user, family: task.schedule.user.family)
+    Notification.create(schedule: task.schedule, message: "A tarefa '#{task.category}' para o pet #{task.schedule.pet.name} foi atualizada", user: task.schedule.user, family: task.schedule.user.family)
   end
 end
