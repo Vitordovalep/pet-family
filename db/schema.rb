@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_183504) do
     t.bigint "document_id"
     t.bigint "user_id"
     t.bigint "family_id", null: false
+    t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_notifications_on_document_id"

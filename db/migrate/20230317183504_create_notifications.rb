@@ -6,7 +6,7 @@ class CreateNotifications < ActiveRecord::Migration[7.0]
       t.references :document, null: true, foreign_key: true
       t.references :user, null: true, foreign_key: true
       t.references :family, null: false, foreign_key: true
-
+      t.datetime :read_at
       t.timestamps
     end
   end

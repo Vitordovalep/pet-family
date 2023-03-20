@@ -1,9 +1,27 @@
 <div>
   <h1>Notifications</h1>
 
-  <% @notifications.each do |notification|%>
 
-    <%= notification.message %>
+  <%# <%= turbo_frame_tag "notifications_index" do %>
+    <%= link_to "Marcar todos como lidos", mark_all_as_read_notifications_path, method: :put, remote: true %>
 
-  <% end %>
+    <% if @notifications.empty? %>
+      <p>Você não possui notificações</p>
+    <% else %>
+
+      <ul>
+        <% @notifications.each do |notification|%>
+          <li>
+            <%= notification.message %>
+            <%=  notification.read_at ? "Lido" : "Não lido" %>
+            <%=link_to notification_path(notification), data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' } do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+    <% end %>
+
+  <%# <% end %>
 </div>

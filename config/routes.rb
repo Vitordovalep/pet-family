@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   resources :documents
-  resources :notifications
+  resources :notifications do
+    get 'mark_all_as_read', on: :collection
+  end
 
   resources :species, only: [] do
     resources :breeds, only: :index, on: :collection

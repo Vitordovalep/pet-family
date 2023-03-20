@@ -1,25 +1,56 @@
-<div class="navbar-pet-family" data-controller="notification" data-notification-id-value="<%=current_user.id%>">
-  <span data-notification-target="message" ></span>
-  <ul class="navbar-nav me-auto nv-footer justify-content-between">
-      <li class="navbar-item">
-        <%= link_to main_page_path, class:"nav-link" do %>
-          <i class="fa-solid fa-paw"></i>
-          <p>Tarefas</p>
-        <% end %>
-      </li>
-      <li class="navbar-item">
-        <%= link_to documents_path, class:"nav-link" do %>
-          <i class="fa-solid fa-file"></i>
-          <p>Documentos</p>
-        <% end %>
-      </li>
-      <li class="navbar-item">
-        <%= link_to family_path(current_user.family), class:"nav-link" do %>
-          <i class="fa-solid fa-user"></i>
-          <p>Perfil</p>
-        <% end %>
-      </li>
-  </ul>
-  <%= link_to "Notify", notifications_path, remote: true, data: {turbo_method: :post}  %>
+
+
+<div id="navbar-botton">
+  <div class="navbar-pet-family" data-controller="notification" data-notification-id-value="<%=current_user.id%>">
+    <span data-notification-target="message" ></span>
+    <ul class="navbar-nav me-auto nv-footer justify-content-between">
+        <li class="navbar-item">
+          <%= link_to main_page_path, class:"nav-link" do %>
+            <i class="fa-solid fa-paw"></i>
+            <p>Tarefas</p>
+          <% end %>
+        </li>
+        <li class="navbar-item">
+          <%= link_to documents_path, class:"nav-link" do %>
+            <i class="fa-solid fa-file"></i>
+            <p>Documentos</p>
+          <% end %>
+        </li>
+        <li class="navbar-item">
+          <%= link_to family_path(current_user.family), class:"nav-link" do %>
+            <i class="fa-solid fa-user"></i>
+            <p>Perfil</p>
+          <% end %>
+        </li>
+        <li class="navbar-item ">
+          <%= link_to notifications_path, class:"nav-link", data: { turbo_frame: "notifications_index" } do %>
+            <i class="fa-solid fa-bell" id= "notification-symbol"></i>
+            <% if current_user.notifications.unread.any? %>
+              <%= content_tag(:span, current_user.notifications.unread.count, id: "notification-counter", class: "badge") %>
+            <% end %>
+            <p>Notificações</p>
+          <% end %>
+
+          <div>
+            <%= turbo_frame_tag "notifications_index" %>
+          </div>
+        </li>
+
+
+
+    </ul>
+
+
+    <%# <%= link_to "Notify", notifications_path, remote: true, data: {turbo_method: :post}  %>
+  </div>
 </div>
 
+
+
+<button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>

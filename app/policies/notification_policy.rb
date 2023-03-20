@@ -9,4 +9,8 @@ class NotificationPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    record.family == user.family
+  end
 end
