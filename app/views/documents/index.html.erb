@@ -24,3 +24,15 @@
 <%= link_to new_document_path do %>
   <i id="sticky-btn", class="fa-solid fa-circle-plus fa-3x"></i>
 <% end %>
+
+<script>
+  document.querySelectorAll('.avatar-small, .all-pets').forEach((avatar) => {
+    avatar.addEventListener('click', (event) => {
+      document.querySelectorAll('.avatar-small').forEach((otherAvatar) => {
+        if (otherAvatar !== avatar) {
+          otherAvatar.classList.remove('clicked');
+        }
+      });
+    });
+  });
+</script>
